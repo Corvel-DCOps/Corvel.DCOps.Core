@@ -1,4 +1,4 @@
-# Corvel.DCOps.Settings
+# Corvel.DCOps.Core
 This module handles the management of settings, both local and shared/global settings for the other Corvel.DCOps modules.
 Currently, there is only one local setting:
 * The URL of the Shared DCOps Server where the global settings are kept. This defaults to 'https://dcops.corvel.com'.
