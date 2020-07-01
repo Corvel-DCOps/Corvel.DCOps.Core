@@ -1,10 +1,27 @@
-# Corvel.DCOps.Core
-This module handles the management of settings, both local and shared/global settings for the other Corvel.DCOps modules.
-Currently, there is only one local setting:
-* The URL of the Shared DCOps Server where the global settings are kept. This defaults to 'https://dcops.corvel.com'.
+# **Corvel.DCOps.Core**
+A collection of generic commands useful for the other DCOps PowerShell Modules.
+This is the module in what will be serveral modules as I work on splitting out the
+Corvel.DCOps module into smaller, more manageable modules that are more task specific.
 
-This module (will) replace the modules in the main Corvel.DCOps module.
-* Corvel.DCOps.Settings (and the Corvel.DCOps.Settings.xml)
-* Corvel.DCOps.Common (used for retrieving the JSON files stored on the DCOps server)
+This module will expand somewhat moving forward but, hopefully, not too much. 
 
-This is the first module in efforts to split Corvel.DCOps into smaller modules.
+This module relies heavily on the 'DCOps Server'. The DCOps Server is a web server that is
+the central/shared server for the Datacenter Operations team. Primarily, it provides access 
+to the various Json data files used by many of the scripts and modules used for automating tasks
+and processes. Additionally, the server also hosts the 'DCOpsRepo' PowerShell Repository  and 
+is the server where most of the scheduled scripts are ran from.
+
+# Corvel.DCOps.JsonData
+This module handles retrieving and saving Json data files to the DCOps Server. Included, is a simple caching system 
+so that data files do not have to be retrieved from the server with every call. 
+
+# Corvel.DCOps.LocalSettings
+This module handles local/user specific settings, such as the location of the DCOps server.
+The local settings file is located at %APPDATA%\Corvel.DCOps\localsettings.json.
+Built in defaults (as of version 1.0.0) are:
+* dcopserver: http://dcops.corvel.com
+* dcopdbserver: hbdcdcops02
+* maxjsondatacacheage: 900
+
+# Corvel.DCOps.SharedSettings
+This module handles the shared/global settings maintained on the DCOps Server. 

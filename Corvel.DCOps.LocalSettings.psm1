@@ -1,15 +1,18 @@
 # HashTable containing the default values if a saved value isn't found.
+# Not all possible values are here.
 $script:DefaultValues = @{
-   dcopsserver = 'https://dcops.corvel.com'
+   dcopserver = 'https://dcops.corvel.com'
+   dcopdbserver = 'hbdcdcops02'
+   maxjsondatacacheage = '900'
 }
-$script:LocalSettingsFile = "$env:ALLUSERSPROFILE\Corvel.DCOps\localsettings.json"
+$script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
 
 <#
 .SYNOPSIS
-Imports the local settings file from %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json.
+Imports the local settings file from %APPDATA%\Corvel.DCOps\localsettings.json.
 
 .DESCRIPTION
-Imports the local settings file from %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json and converts
+Imports the local settings file from %APPDATA%\Corvel.DCOps\localsettings.json and converts
 the contents to a hashtable.
 Primarily for internal used.
 
@@ -17,7 +20,7 @@ Primarily for internal used.
 PS> Import-DCOpsLocalSettings
 Name                           Value
 ----                           -----
-dcopsserver                    https://dcops.corvel.com
+dcopserver                    https://dcops.corvel.com
 
 .INPUTS
 None. This cmdlet does not accept any parameters
@@ -56,7 +59,7 @@ This cmdlet returns the value of a setting from the local settings file.
 The local settings file is a collection Key-Value pairs.
 If no name (key) is specified, all values in the file are returned as a hashtable.
 If a specified name (key) is not found in the file, a default value (if one exists or is specified) is returned.
-The local settings file is stored at %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json.
+The local settings file is stored at %APPDATA%\Corvel.DCOps\localsettings.json.
 
 .PARAMETER Name
 The name of the setting (key) to return.
@@ -70,8 +73,8 @@ PS> Get-DCOpsLocalSetting
 Returns all settings in the local settings file as a hashtable
 
 .EXAMPLE
-PS> Get-DCOpsLocalSetting -Name 'dcopsserver'
-Returns the string value stored for the dcopsserver key.
+PS> Get-DCOpsLocalSetting -Name 'dcopserver'
+Returns the string value stored for the dcopserver key.
 
 .EXAMPLE
 PS> Get-DCOpsLocalSetting -Name 'smtpserver' -DefaultValue 'smtp.corvel.com'
@@ -128,7 +131,7 @@ Sets the value of the specified name (key) in the local settings file.
 
 .DESCRIPTION
 Sets the value of the specified name (key) in the local settings file. If the name (key) does not exist, the Key-Value pair is created.
-The local settings file is stored at %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json.
+The local settings file is stored at %APPDATA%\Corvel.DCOps\localsettings.json.
 
 .PARAMETER Name
 The name of the setting to update or create.
@@ -152,7 +155,7 @@ Remove-DCOpsLocalSetting
 Get-DCOpsLocalSettingsDefaults
 #>
 function Set-DCOpsLocalSetting {
-   [CmdletBinding()]
+   [CmdletBinding(SupportsShouldProcess)]
    [OutputType([System.Void])]
    param (
       [Parameter(Mandatory=$true)]
@@ -163,9 +166,10 @@ function Set-DCOpsLocalSetting {
       [string]$Value
    )
    $LocalSettingsHash = Import-DCOpsLocalSettings
-   
-   $LocalSettingsHash[$Name] = $Value
-   $LocalSettingsHash | ConvertTo-Json | Set-Content $script:LocalSettingsFile 
+   if ($PSCmdlet.ShouldProcess($Name, 'Setting value')) {
+      $LocalSettingsHash[$Name] = $Value
+      $LocalSettingsHash | ConvertTo-Json | Set-Content $script:LocalSettingsFile 
+   }
 }
 
 <#
@@ -174,7 +178,7 @@ Removes an item from the local settings file.
 
 .DESCRIPTION
 Removes the specified name (key) from the local settings file if it exists.
-The local settings file is stored at %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json.
+The local settings file is stored at %APPDATA%\Corvel.DCOps\localsettings.json.
 
 .PARAMETER Name
 The name (key) of the setting to remove.
@@ -195,7 +199,7 @@ Set-DCOpsLOcalSetting
 Get-DCOpsLocalSettingsDefaults
 #>
 function Remove-DCOpsLocalSetting {
-   [CmdletBinding()]
+   [CmdletBinding(SupportsShouldProcess)]
    [OutputType([System.Void])]   
    param (
       [Parameter(Mandatory = $true)]
@@ -205,8 +209,10 @@ function Remove-DCOpsLocalSetting {
    ) 
    $LocalSettingsHash = Import-DCOpsLocalSettings
    if ($LocalSettingsHash.ContainsKey($Name)) {
-      $LocalSettingsHash.Remove($Name)
-      $LocalSettingsHash | ConvertTo-Json | Set-Content $script:LocalSettingsFile 
+      if ($PSCmdlet.ShouldProcess($Name, "Removing setting")) {
+         $LocalSettingsHash.Remove($Name)
+         $LocalSettingsHash | ConvertTo-Json | Set-Content $script:LocalSettingsFile 
+      }
    }  
 }
 
@@ -216,13 +222,13 @@ Returns the system defined default values.
 
 .DESCRIPTION
 This cmdlet returns a hashtable containing the Key-Value pairs for the system defined (hard coded) default values.
-The local settings file is stored at %ALLUSERSPROFILE%\Corvel.DCOps\localsettings.json.
+The local settings file is stored at %APPDATA%\Corvel.DCOps\localsettings.json.
 
 .EXAMPLE
 PS> Get-DCOpsLocalSettingsDefaults
 Name                           Value
 ----                           -----
-dcopsserver                    https://dcops.corvel.com
+dcopserver                    https://dcops.corvel.com
 
 .INPUTS
 None
