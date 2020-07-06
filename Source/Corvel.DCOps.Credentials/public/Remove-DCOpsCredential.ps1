@@ -1,97 +1,36 @@
-function Set-DCOpsCredential {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
-    [CmdletBinding(DefaultParameterSetName='Password', SupportsShouldProcess)]
-    [OutputType('DCOpsCredential')]
-    param (
-       [Parameter(Mandatory=$true, ParameterSetName='Password')]
-       [Parameter(ParameterSetName='SecureString')]
-       [Parameter(ParameterSetName='PSCredential')]
-       [ValidateNotNullOrEmpty()]
-       # Host name for the password being added
-       [string]$HostName,
+function Remove-DCOpsCredential {
+   [CmdletBinding(SupportsShouldProcess)]
+   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '')]
+   param (
+      [Parameter(Mandatory=$true, ParameterSetName='Search')]
+      [ValidateNotNullOrEmpty()]
+      [string]$HostName,
+      [Parameter(Mandatory=$true, ParameterSetName='Search')]
+      [ValidateNotNullOrEmpty()]
+      [string]$UserName,
+      [Parameter(Mandatory=$true, ParameterSetName='DCOpCredential')]
+      [ValidateNotNullOrEmpty()]
+      [PSTypeName('DCOpsCredential')]$DCOpsCredential,
+      [ValidateNotNullOrEmpty()]
+      [string]$DCOpServer = (Get-DCOpsLocalSetting -Key 'dcopserver')
+   )
 
-       [Parameter(Mandatory=$true, ParameterSetName='Password')]
-       [Parameter(ParameterSetname='SecureString')]
-       [ValidateNotNullOrEmpty()]
-       [string]$UserName,
+   if (-not ($CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer)) {
+      throw 'Unable to load credential file.'
+      return
+   }
+   if ($PSBoundParameters.ContainsKey('HostName')) {
+      $Credential = $CredentialStore | Where-Object {$_.HostName -eq $HostName -and  $_.UserName -eq $UserName}
+   } else {
+      $Credential = $CredentialStore | Where-Object {$_.HostName -eq $DCOpsCredential.HostName -and $_.UserName -eq $DCOpsCredential.UserName }
+   }
+   if (-not $Credential) {
+      Write-Warning "Credential '$UserName@$HostName' not found."
+      return
+   }
+   if ($PSCmdlet.ShouldProcess("$($Credential.UserName)@$($Credential.HostName)", 'Removing credential')) {
+      $CredentialStore.Remove($Credential) | Out-Null
+      Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpServer $DCOpServer
+   }
 
-       [Parameter(ParameterSetName='Password')]
-       [Parameter(ParameterSetName='SecureString')]
-       [Parameter(ParameterSetName='PSCredential')]
-       [ValidateNotNullOrEmpty()]
-       [string]$Description,
-
-       [Parameter(Mandatory=$true, ParameterSetName='Password')]
-       [ValidateNotNullOrEmpty()]
-       [string]$Password,
-
-       [Parameter(Mandatory=$true, ParameterSetName='SecureString')]
-       [ValidateNotNullOrEmpty()]
-       [securestring]$SecureString,
-
-       [Parameter(Mandatory=$true, ParameterSetName='PSCredential')]
-       [ValidateNotNullOrEmpty()]
-       [pscredential]$PSCredential,
-
-       [Parameter(Mandatory=$true, ParameterSetName='DCOpsCredential')]
-       [ValidateNotNullOrEmpty()]
-       [PSTypeName('DCOpsCredential')]$DCOpsCredential,
-
-       [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
-    )
-
-    if (-not($CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer)) {
-       throw 'Unable to load credential file.'
-    }
-
-    $CreateParams = @{
-       SecureKey = Get-DCOpsMasterKey
-    }
-
-    switch ($PSCmdlet.ParameterSetName) {
-       'Password' {
-          $CreateParams['HostName'] = $HostName
-          $CreateParams['UserName'] = $UserName
-          $CreateParams['Password'] = $Password
-          if ($PSBoundParameters.ContainsKey('Description')) { $CreateParams['Description'] = $Description }
-       }
-       'SecureString' {
-          $CreateParams['HostName'] = $HostName
-          $CreateParams['UserName'] = $UserName
-          $CreateParams['SecureString'] = $SecureString
-          if ($PSBoundParameters.ContainsKey('Description')) { $CreateParams['Description'] = $Description }
-       }
-       'PSCredential' {
-          $CreateParams['HostName'] = $HostName
-          $CreateParams['UserName'] = $PSCredential.UserName
-          $CreateParams['SecureString'] = $PSCredential.Password
-          if ($PSBoundParameters.ContainsKey('Description')) { $CreateParams['Description'] = $Description }
-       }
-       'DCOpsCredential' {
-          $CreateParams['HostName'] = $DCOpsCredential.HostName
-          $CreateParams['UserName'] = $DCOpsCredential.UserName
-          $CreateParams['SecureString'] = $DCOpsCredential.Password
-          if ($DCOpsCredential.Description.Length -ne 0) { $CreateParams['Description'] = $DCOpsCredential.Description }
-       }
-    }
-    $SearchParams = @{
-       HostName = $CreateParams['HostName']
-       UserName = $CreateParams['UserName']
-    }
-    if ($CreateParams.ContainsKey('Description')) { $SearchParams['Description'] = $CreateParams['Description'] }
-
-    $Credential = Get-DCOpsCredential @SearchParams -DCOpServer $DCopServer
-    if ($Credential) {
-       $CredentialStore.Remove($Credential) | Out-Null
-    }
-
-    $Credential = New-DCOPsCredentialObject @CreateParams
-    if ($PSCmdlet.ShouldProcess("$($Credential.UserName)@$($Credential.HostName)", "Updating DCOps Credential")) {
-       $CredentialStore.Add($Credential) | Out-Null
-       Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpServer $DCopServer
-    }
-
-    return $Credential
-
- }
+}

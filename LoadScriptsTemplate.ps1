@@ -20,4 +20,5 @@ foreach ($ScriptFile in $Scripts) {
     . $ScriptFile.FullName
 }
 Export-ModuleMember -Function $ExportedFunctions
-#endregion
+#endregion LoadScripts
+

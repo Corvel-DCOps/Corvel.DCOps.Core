@@ -1,5 +1,5 @@
 function Set-DCOpsCredential {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '')]
     [CmdletBinding(DefaultParameterSetName='Password', SupportsShouldProcess)]
     [OutputType('DCOpsCredential')]
     param (
