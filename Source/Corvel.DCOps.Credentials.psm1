@@ -1,5 +1,10 @@
 $script:MasterKeyHistory = "$env:APPDATA\Corvel.DCOps\masterkey.history"
 
+#region REMOVE_CODE
+# Code in this region will be removed during the build process and the function scripts
+# in the 'private' and 'public' subfolders will be inserted in its place.
+# Functions from the 'public' folder being added to 'FunctionsToExport' setting of the module.
+# Code outside of the region will be preserved.
 #region LoadScripts
 $ModulePath = $MyInvocation.MyCommand.Path
 $ExportedFunctions = @()
@@ -27,6 +32,7 @@ if (Test-Path "$ModuleRoot\private") {
 }
 Export-ModuleMember -Function $ExportedFunctions
 #endregion LoadScripts
+#endregion REMOVE_CODE
 
 # I don't like this hack, but it works during module loading
 if (Get-Command Get-DCOpsLocalSetting -ErrorAction SilentlyContinue) {

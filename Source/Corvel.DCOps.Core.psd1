@@ -70,7 +70,7 @@ NestedModules = @('Corvel.DCOps.Utility',
                'Corvel.DCOps.LocalSettings',
                'Corvel.DCOps.JsonData',
                'Corvel.DCOps.SharedSettings',
-               'Corvel.DCOps.Credentials',
+               'Corvel.DCOps.Credentials'
                 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
