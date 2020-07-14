@@ -1,6 +1,7 @@
 function Remove-DCOpsCredential {
-   [CmdletBinding(SupportsShouldProcess)]
    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '')]
+   [CmdletBinding(SupportsShouldProcess)]
+   [OutputType([System.Void])]
    param (
       [Parameter(Mandatory=$true, ParameterSetName='Search')]
       [ValidateNotNullOrEmpty()]

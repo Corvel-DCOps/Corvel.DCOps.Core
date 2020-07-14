@@ -49,15 +49,15 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
+### -DCOpsCredential
+{{ Fill DCOpsCredential Description }}
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: Object
+Parameter Sets: DCOpsCredential
+Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -73,21 +73,6 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DCOpsCredential
-{{ Fill DCOpsCredential Description }}
-
-```yaml
-Type: Object
-Parameter Sets: DCOpsCredential
-Aliases:
-
-Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -136,12 +121,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PSCredential
-{{ Fill PSCredential Description }}
+### -Password
+{{ Fill Password Description }}
 
 ```yaml
-Type: PSCredential
-Parameter Sets: PSCredential
+Type: String
+Parameter Sets: Password
 Aliases:
 
 Required: True
@@ -151,12 +136,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Password
-{{ Fill Password Description }}
+### -PSCredential
+{{ Fill PSCredential Description }}
 
 ```yaml
-Type: String
-Parameter Sets: Password
+Type: PSCredential
+Parameter Sets: PSCredential
 Aliases:
 
 Required: True
@@ -200,6 +185,21 @@ Accept wildcard characters: False
 Type: String
 Parameter Sets: SecureString
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
 
 Required: False
 Position: Named

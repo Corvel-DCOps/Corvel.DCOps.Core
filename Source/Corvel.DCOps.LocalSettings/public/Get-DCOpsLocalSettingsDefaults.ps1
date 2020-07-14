@@ -2,5 +2,5 @@ function Get-DCOpsLocalSettingsDefaults {
     [CmdletBinding()]
     [OutputType([hashtable])]
     param ()
-    return $script:DefaultValues
+    return $script:DefaultValues.Clone()
  }

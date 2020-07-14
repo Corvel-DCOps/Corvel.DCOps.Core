@@ -1,5 +1,4 @@
 function Get-DCOpsMasterKey {
-#        Get-DCOpsMasterKey
    [CmdletBinding()]
    [OutputType([securestring])]
    param ()

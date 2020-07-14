@@ -84,7 +84,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
+### System.Collections.Hashtable
+
+### System.String
+
 ## NOTES
 
 ## RELATED LINKS

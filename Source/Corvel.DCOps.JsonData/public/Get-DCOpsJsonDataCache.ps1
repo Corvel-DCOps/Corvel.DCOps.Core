@@ -1,6 +1,8 @@
 function Get-DCOpsJsonDataCache {
     [CmdletBinding()]
+    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
     param ()
     if (-not $script:DCOpsJsonDataCache) { return }
-    $script:DCOpsJsonDataCache
+    $CacheCopy = Copy-DCOpsDataCache
+    return ,$CacheCopy
  }

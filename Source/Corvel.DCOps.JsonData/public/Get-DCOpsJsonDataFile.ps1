@@ -1,5 +1,6 @@
 function Get-DCOpsJsonDataFile {
     [CmdletBinding()]
+    [OutputType([object], [string])]
     param (
        [Parameter(Mandatory=$true)]
        [ValidateNotNullOrEmpty()]

@@ -1,5 +1,6 @@
 function Copy-PreferenceVariables {
    [CmdletBinding()]
+   [OutputType([System.Void])]
    param (
       [Parameter(Mandatory=$true)]
       [ValidateScript({$_.GetType().FullName -eq 'System.Management.Automation.PSScriptCmdlet' })]

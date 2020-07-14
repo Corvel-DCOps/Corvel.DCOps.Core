@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-DCOpsCredential
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieves shared credentials from the DCOps Server.
 
 ## SYNTAX
 
@@ -18,21 +18,26 @@ Get-DCOpsCredential [[-HostName] <String>] [[-UserName] <String>] [[-Description
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Retrieves shared credentials from the DCOps Server corresponding to the filter criteria define
+by the HostName, UserName and Description parameters. All three parameters support wildcards.
+If no criteria is specified, all shared credentials are returned.
+If no matches are found, Null is returned.
+If DCOpsServer is not specified, the default from the 'dcopserver' local setting. is used.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-DCOpsCredential -HostName 'hbdcdcops*' 
 ```
 
-{{ Add example description here }}
+Retrieves all credentials where the HostName begins with 'hbdcdcops'. 
 
 ## PARAMETERS
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the credentials from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -41,13 +46,13 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: None
+Default value: The 'dcopserver' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Description
-{{ Fill Description Description }}
+Specifies the description of the credential you wish to retrieve.
 
 ```yaml
 Type: String
@@ -58,11 +63,11 @@ Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HostName
-{{ Fill HostName Description }}
+Specifies the host name of the credential you wish to retrieve.
 
 ```yaml
 Type: String
@@ -73,11 +78,11 @@ Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -UserName
-{{ Fill UserName Description }}
+Specifies the user name of the credential you wish to retrieve.
 
 ```yaml
 Type: String
@@ -88,7 +93,7 @@ Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters
@@ -100,8 +105,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Collections.ObjectModel.ReadOnlyCollection`1[[System.Management.Automation.PSObject, System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]
+### One or more DCOpsCredential objects.
 
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsCredential.md)
+[Set-DCOpsCredential]()
+[Remove-DCOpsCredential]()
+[about_DCOpsCredential]()
+[about-DCOpsServer]()

@@ -1,6 +1,6 @@
 function Get-DCOpsCredential {
     [CmdletBinding()]
-    [OutputType([System.Collections.ObjectModel.ReadOnlyCollection[PSCustomObject]])]
+    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
     param (
        [ValidateNotNullOrEmpty()]
        [SupportsWildcards()]
@@ -43,8 +43,7 @@ function Get-DCOpsCredential {
        }
     }
     if ($WhereArray.Count -eq 0) {
-       Write-Output $CredentialStore.AsReadOnly() -NoEnumerate
-       return
+       return ,$CredentialStore.AsReadOnly()
     }
 
     $WhereString = $WhereArray -join ' -and '
@@ -53,10 +52,6 @@ function Get-DCOpsCredential {
 
     $SearchResults = $CredentialStore | Where-Object -FilterScript $WhereBlock
     if ($SearchResults) {
-       if ($SearchResults -is [array]) {
-          Write-Output $SearchResults.AsReadOnly() -NoEnumerate
-       } else {
-          Write-Output $SearchResults -NoEnumerate
-       }
+      return ,$SearchResults       
     }
  }

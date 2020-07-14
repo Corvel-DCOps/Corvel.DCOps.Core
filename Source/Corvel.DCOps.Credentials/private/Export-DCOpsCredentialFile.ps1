@@ -1,5 +1,6 @@
 function Export-DCOpsCredentialFile {
     [CmdletBinding(SupportsShouldProcess)]
+    [OutputType([System.Void])]
     param (
        [Parameter(Mandatory = $true)]
        [ValidateNotNullOrEmpty()]

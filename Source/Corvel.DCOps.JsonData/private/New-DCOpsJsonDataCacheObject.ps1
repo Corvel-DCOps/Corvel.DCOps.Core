@@ -1,5 +1,6 @@
 function New-DCOpsJsonDataCacheObject {
     [CmdletBinding()]
+    [OutputType('JsonDataCacheObject')]
     param (
        [ValidateNotNullOrEmpty()]
        [string]$Name = '',

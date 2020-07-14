@@ -1,5 +1,6 @@
 function Set-DCOpsMasterKey {
     [CmdletBinding(SupportsShouldProcess)]
+    [OutputType([System.Void])]
     param (
        [switch]$Force
     )

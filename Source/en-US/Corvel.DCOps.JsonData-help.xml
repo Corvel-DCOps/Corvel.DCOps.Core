@@ -10,7 +10,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>When calling Get-DCOpsJsonDataFile, the json data is cached so subsequent calls can avoid another call to the server. The maximum age of data in the cache is controlled by the 'maxjsondatacacheage'  local setting.</maml:para>
+      <maml:para>When calling Get-DCOpsJsonDataFile, the json data is cached so subsequent calls can avoid another call to the server. The maximum age of data in the cache is controlled by the 'maxjsondatacacheage'  local setting. Calling this cmdlet clears the existing cache so subsequent calls will retrieve a fresh copy of the  Json data file from the DCOps Server</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -31,7 +31,7 @@
     <command:returnValues>
       <command:returnValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>System.Void</maml:name>
         </dev:type>
         <maml:description>
           <maml:para></maml:para>
@@ -46,16 +46,16 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Clear=DCOpsJsonDataCache</dev:code>
+        <dev:code>PS C:\&gt; Clear-DCOpsJsonDataCache</dev:code>
         <dev:remarks>
-          <maml:para>After calling this cmdlet, all objects in the cache are removed and subsequent calls to Get-DCOpsJsonDataFile will retrieve a fresh copy of the Json data file from the server.</maml:para>
+          <maml:para>After calling this cmdlet, all objects in the cache are removed and subsequent calls to Get-DCOpsJsonDataFile will retrieve a fresh copy of the Json data file from the DCOps Server.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version</maml:linkText>
-        <maml:uri>https://github.com/srhsoftware/Corvel.DCOps.Core.fork/blob/docs/Clear-DCOpsJsonDataCache.md</maml:uri>
+        <maml:uri>https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Clear-DCopsJsonDataCache.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-DCOpsJsonDataCache</maml:linkText>
@@ -98,7 +98,7 @@
     <command:returnValues>
       <command:returnValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>System.Collections.Generic.List`1[[System.Management.Automation.PSObject, System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]</maml:name>
         </dev:type>
         <maml:description>
           <maml:para></maml:para>
@@ -253,6 +253,14 @@
           <maml:para></maml:para>
         </maml:description>
       </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
@@ -346,18 +354,6 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
-        <maml:name>Confirm</maml:name>
-        <maml:Description>
-          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>DCOpServer</maml:name>
         <maml:Description>
@@ -394,6 +390,18 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
         <maml:Description>
@@ -420,7 +428,7 @@
     <command:returnValues>
       <command:returnValue>
         <dev:type>
-          <maml:name>System.Object</maml:name>
+          <maml:name>System.Void</maml:name>
         </dev:type>
         <maml:description>
           <maml:para></maml:para>

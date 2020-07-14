@@ -6,11 +6,11 @@
       <command:verb>ConvertTo</command:verb>
       <command:noun>ByteArray</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Encodes all the characters in the specified string into a sequence of bytes using ASCII encoding.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Encodes all the characters in the specified string into a sequence of bytes using ASCII encoding. Wrapper for call to [System.Text.Encoding]::ASCII.GetBytes.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -18,7 +18,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>String</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill String Description }}</maml:para>
+            <maml:para>The String to be encoded.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -33,7 +33,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>String</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill String Description }}</maml:para>
+          <maml:para>The String to be encoded.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -71,13 +71,28 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:code>PS C:\&gt; ConvertTo-ByteArray -String 'somestring'
+115
+111
+109
+101
+115
+116
+114
+105
+110
+103</dev:code>
         <dev:remarks>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>This command returns a byte array containing the results of encoding the specified set of characters.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri>https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-ByteArray.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
@@ -85,11 +100,11 @@
       <command:verb>ConvertTo</command:verb>
       <command:noun>PlainString</command:noun>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Takes a SecureString and converts it to plain text.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Takes a SecureString and converts it to plain text. Useful when you need the plain text version of a password.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -97,7 +112,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>SecureString</maml:name>
           <maml:Description>
-            <maml:para>{{ Fill SecureString Description }}</maml:para>
+            <maml:para>The SecureString to be unencrypted.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
           <dev:type>
@@ -112,7 +127,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>SecureString</maml:name>
         <maml:Description>
-          <maml:para>{{ Fill SecureString Description }}</maml:para>
+          <maml:para>The SecureString to be unencrypted.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
         <dev:type>
@@ -150,12 +165,20 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:code>PS C:\&gt; $SecurePassword = Read-Host -Prompt 'Enter password' -AsSecureString
+Enter password: ***********
+PS C:\&gt; ConvertTo-PlainString -SecureString $SecurePassword
+password123</dev:code>
         <dev:remarks>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>The above example prompts the user to enter a password using Read-Host with the AsSecureString parameter which will return a secure string encrypting the password. Then, ConvertTo-PlainString converts the secured password back to a unencrypted string.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri>https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-PlainString.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
 </helpItems>

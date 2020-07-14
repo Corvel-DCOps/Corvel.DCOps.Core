@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.Utility-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-ByteArray.md
 schema: 2.0.0
 ---
 
 # ConvertTo-ByteArray
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Encodes all the characters in the specified string into a sequence of bytes using ASCII encoding.
 
 ## SYNTAX
 
@@ -17,21 +17,32 @@ ConvertTo-ByteArray [-String] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Encodes all the characters in the specified string into a sequence of bytes using ASCII encoding.
+Wrapper for call to [System.Text.Encoding]::ASCII.GetBytes.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> ConvertTo-ByteArray -String 'somestring'
+115
+111
+109
+101
+115
+116
+114
+105
+110
+103
 ```
 
-{{ Add example description here }}
+This command returns a byte array containing the results of encoding the specified set of characters.
 
 ## PARAMETERS
 
 ### -String
-{{ Fill String Description }}
+The String to be encoded.
 
 ```yaml
 Type: String
@@ -59,3 +70,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-ByteArray.md)

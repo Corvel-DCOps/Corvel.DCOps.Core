@@ -1,5 +1,6 @@
 function Get-DCOPsSharedSetting {
     [CmdletBinding()]
+    [OutputType([hashtable], [string])]
     param (
        [Parameter(Position=0)]
        [ValidateNotNullOrEmpty()]

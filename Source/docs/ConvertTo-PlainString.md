@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.Utility-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-PlainString.md
 schema: 2.0.0
 ---
 
 # ConvertTo-PlainString
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Takes a SecureString and converts it to plain text.
 
 ## SYNTAX
 
@@ -17,21 +17,24 @@ ConvertTo-PlainString [-SecureString] <SecureString> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Takes a SecureString and converts it to plain text.
+Useful when you need the plain text version of a password.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> $SecurePassword = Read-Host -Prompt 'Enter password' -AsSecureString
+Enter password: ***********
+PS C:\> ConvertTo-PlainString -SecureString $SecurePassword
+password123
 ```
-
-{{ Add example description here }}
+The above example prompts the user to enter a password using Read-Host with the AsSecureString parameter which will return a secure string encrypting the password. Then, ConvertTo-PlainString converts the secured password back to a unencrypted string.
 
 ## PARAMETERS
 
 ### -SecureString
-{{ Fill SecureString Description }}
+The SecureString to be unencrypted.
 
 ```yaml
 Type: SecureString
@@ -59,3 +62,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-PlainString.md)

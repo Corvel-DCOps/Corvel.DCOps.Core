@@ -1,9 +1,10 @@
 function Get-DCOpsJsonDataShare {
-    [CmdletBinding()]
-    param (
-       [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
-    )
+   [CmdletBinding()]
+   [OutputType([string])]
+   param (
+      [ValidateNotNullOrEmpty()]
+      [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+   )
 
     # First we convert the server string (which is specified as http[s]://servername:[port])
     # to a URI object. This is easier than parsing the string out to get the host name.
@@ -20,5 +21,5 @@ function Get-DCOpsJsonDataShare {
     if (Test-Path $JsonDataShare) {
        Write-Output $JsonDataShare
     }
-    Remove-CimSession -CimSession $CimSession -ErrorAction SilentlyContinue -Verbose:$false -Whatif:$false
+    Remove-CimSession -CimSession $CimSession -ErrorAction SilentlyContinue -Verbose:$false -Whatif:$false -Confirm:$false
  }

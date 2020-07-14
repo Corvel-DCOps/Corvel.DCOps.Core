@@ -1,5 +1,6 @@
 function Import-DCOpsSharedSettings {
     [CmdletBinding()]
+    [OutputType([hashtable])]
     param (
        [ValidateNotNullOrEmpty()]
        [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')

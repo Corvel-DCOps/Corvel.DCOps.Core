@@ -43,5 +43,5 @@ function Import-DCOpsCredentialFile {
        }
     }
 
-    Write-Output $CredentialStore -NoEnumerate
+    return ,$CredentialStore
  }

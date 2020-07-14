@@ -1,6 +1,6 @@
 # Cache objects retrieved so we don't have to get them every time
 # Age of objects in the cache controlled by LocalSetting maxjsondatacacheage
-$script:DCOpsJsonDataCache = [System.Collections.Generic.List[object]]@()
+$script:DCOpsJsonDataCache = [System.Collections.Generic.List[PSCustomObject]]@()
 
 #region REMOVE_CODE
 # Code in this region will be removed during the build process and the function scripts
