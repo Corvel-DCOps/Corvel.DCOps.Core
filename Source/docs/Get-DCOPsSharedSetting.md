@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.SharedSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOPsSharedSetting.md
 schema: 2.0.0
 ---
 
 # Get-DCOPsSharedSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieve the specified shared setting from the DCOps Server.
 
 ## SYNTAX
 
@@ -17,21 +17,34 @@ Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String>] [-DCOpServer
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Retrieves the shared setting specified by Key from the DCOps Server.
+If no Key is specified, all shared settings are returned, otherwise just the value of the setting is returned.
+If the Key is not found then the DefaultValue is returned.
+If no Key is specified, the DefaultValue parameter is ignored.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-DCOPsSharedSetting -Key 'notificationemail'
+dcadmins@corvel.com
 ```
 
-{{ Add example description here }}
+Retrieves the shared setting 'notificationemail' from the DCOps Server.
+
+### Example 2
+```powershell
+PS C:\> Get-DCOPsSharedSetting -Key 'nokeyfound' -DefaultValue 'defaultvalue'
+defaultvalue
+```
+
+Attempts to retrieve the shared setting 'nokeyfound' from the DCOps Server and returns 'defaultvalue' if it is not found.
 
 ## PARAMETERS
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the shared settings from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -40,13 +53,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: The 'dcopserver' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -DefaultValue
-{{ Fill DefaultValue Description }}
+The value to return if the Key is not found in the shared settings on the DCOps Server.
 
 ```yaml
 Type: String
@@ -61,7 +74,8 @@ Accept wildcard characters: False
 ```
 
 ### -Key
-{{ Fill Key Description }}
+The Key to search for in the shared settings on the DCOps Server.
+If not specified, all Key-Value pairs from the DCOps Server are returned. 
 
 ```yaml
 Type: String
@@ -91,3 +105,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOPsSharedSetting.md)
+[Set-DCOpsSharedSetting]()
+[Remove-DCOpsSharedSetting]()

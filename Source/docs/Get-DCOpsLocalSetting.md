@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.LocalSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsLocalSetting.md
 schema: 2.0.0
 ---
 
 # Get-DCOpsLocalSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieve the specified local setting.
 
 ## SYNTAX
 
@@ -17,21 +17,44 @@ Get-DCOpsLocalSetting [[-Key] <String>] [[-DefaultValue] <String>] [<CommonParam
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Retrieves the local setting specified by Key from the local settings file stored at %APPDATA%\Corvel.DCOps\localsettings.json.
+If no Key is specified, all local settings are returned, otherwise just the value of the setting is returned.
+If the Key is not found then the DefaultValue is returned or, in for some keys, the System Default Value is returned.
+If no Key is specified, the DefaultValue parameter is ignored.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-DCOpsLocalSetting -Key 'dcopserver'
+https://dcops.corvel.com
 ```
 
-{{ Add example description here }}
+Returns the current value of the 'dcopserver' local setting.
+
+### Example 2
+```powershell
+PS C:\> Get-DCOpsLocalSetting -Key 'missingvalue' -DefaultValue 'defaultvalue'
+defaultvalue
+```
+
+If 'missingvalue' is not a key in the local settings file, returns the DefaultValue 'defaultvalue'.
+
+### Example 3
+```powershell
+PS C:\> Get-DCOpsLocalSetting 
+Name                           Value
+----                           -----
+dcopdbserver                   HBDCDCOPS02
+dcopserver                     http://hbdcdcops06.corvel.com
+```
+
+Returns a hashtable of all the Key-Value pairs in the local settings file. 
 
 ## PARAMETERS
 
 ### -DefaultValue
-{{ Fill DefaultValue Description }}
+The value to return if the Key is not found in the local settings file.
 
 ```yaml
 Type: String
@@ -46,7 +69,8 @@ Accept wildcard characters: False
 ```
 
 ### -Key
-{{ Fill Key Description }}
+The Key to search for in the local settings file.
+If not specified, all Key-Value pairs in the local settings are returned. 
 
 ```yaml
 Type: String
@@ -74,3 +98,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsLocalSetting.md)
+[Set-DCOpsLocalSetting]()
+[Remove-DCOpsLocalSettings]()
+[Get-DCOpsLocalSettingsDefaults]()

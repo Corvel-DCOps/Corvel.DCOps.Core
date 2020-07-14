@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.Credentials-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsMasterKey.md
 schema: 2.0.0
 ---
 
 # Get-DCOpsMasterKey
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieves the current DCOps Master Key used for decrypting credentials on the DCOps Server. 
 
 ## SYNTAX
 
@@ -17,16 +17,19 @@ Get-DCOpsMasterKey [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+The DCOps Master Key is used for encrypting/decrypting credentials stored on the DCOps Server. 
+If the the master key is not present, credentials can not be retreived. 
+
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-DCOpsMasterKey
+System.Security.SecureString
 ```
 
-{{ Add example description here }}
+Returns the currently set DCOps Master Key.
 
 ## PARAMETERS
 
@@ -44,3 +47,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsMasterKey.md)
+[Set-DCOpsMasterKey]()

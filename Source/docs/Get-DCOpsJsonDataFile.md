@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.JsonData-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsJsonDataFile.md
 schema: 2.0.0
 ---
 
 # Get-DCOpsJsonDataFile
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieves a Json data file from the DCOps Server.
 
 ## SYNTAX
 
@@ -17,21 +17,32 @@ Get-DCOpsJsonDataFile [-Name] <String> [-ForceRefresh] [[-DCOpServer] <String>] 
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Retrieves the specified Json data file from the DCOps Server. The command will return the Json data convert to a PSCustomObject 
+unless the AsJson switch is set. 
+If the Json data file has been retrieved recently in the current session, the data will be retrieved from the Json Data Cache unless
+the ForceRefresh switch is set.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-DCOpsJsonDataFile -Name 'somedata'
 ```
 
-{{ Add example description here }}
+Retrieves the Json Data file called 'somedata.json' from the DCOps Server and returns a PSCustomObject from the data.
+
+### Example 2
+```powershell
+PS C:\> Get-DCOpsJsonDataFile -Name 'somedata' -ForceRefresh -AsJson
+```
+
+Retrieves the Json Data file called 'somedata.json' from the DCOps Server and returns the raw Json data. If data is 
+in the Json Data cache, it is ignored and the data if retrieved directly from the DCOps Server.
 
 ## PARAMETERS
 
 ### -AsJson
-{{ Fill AsJson Description }}
+Do not convert the data to a PSCustomObject and return the raw Json.
 
 ```yaml
 Type: SwitchParameter
@@ -46,7 +57,8 @@ Accept wildcard characters: False
 ```
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the Json data file from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -55,13 +67,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value:  The 'dcopserver' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -ForceRefresh
-{{ Fill ForceRefresh Description }}
+Ignore the Json Data Cache and retrieve the data directly from the server.
 
 ```yaml
 Type: SwitchParameter
@@ -76,7 +88,9 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-{{ Fill Name Description }}
+The name of the Json data file to retrieve.
+Name can be specified with or without the .json extension. If an extension is specified,
+it is removed and .json is explictily used.
 
 ```yaml
 Type: String
@@ -103,6 +117,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-## NOTES
-
 ## RELATED LINKS
+
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsJsonDataFile.md)
+[Set-DCOpsJsonDataFile]()
+[about_DCopsServer]()
