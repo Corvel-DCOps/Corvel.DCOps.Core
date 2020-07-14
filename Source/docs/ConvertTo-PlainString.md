@@ -29,6 +29,7 @@ Enter password: ***********
 PS C:\> ConvertTo-PlainString -SecureString $SecurePassword
 password123
 ```
+
 The above example prompts the user to enter a password using Read-Host with the AsSecureString parameter which will return a secure string encrypting the password. Then, ConvertTo-PlainString converts the secured password back to a unencrypted string.
 
 ## PARAMETERS
@@ -62,4 +63,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/ConvertTo-PlainString.md)

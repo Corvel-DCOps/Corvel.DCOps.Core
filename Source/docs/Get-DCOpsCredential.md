@@ -28,7 +28,7 @@ If DCOpsServer is not specified, the default from the 'dcopserver' local setting
 
 ### Example 1
 ```powershell
-PS C:\> Get-DCOpsCredential -HostName 'hbdcdcops*' 
+PS C:\> Get-DCOpsCredential -HostName 'hbdcdcops*'
 ```
 
 Retrieves all credentials where the HostName begins with 'hbdcdcops'. 
@@ -105,11 +105,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### One or more DCOpsCredential objects.
+### Zero or more DCOpsCredential objects.
 
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsCredential.md)
 [Set-DCOpsCredential]()
 [Remove-DCOpsCredential]()
