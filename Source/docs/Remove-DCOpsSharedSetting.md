@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.SharedSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsSharedSetting.md
 schema: 2.0.0
 ---
 
 # Remove-DCOpsSharedSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Removes a shared setting from the DCOps Server.
 
 ## SYNTAX
 
@@ -17,21 +17,22 @@ Remove-DCOpsSharedSetting [-Key] <String> [[-DCOpServer] <String>] [-WhatIf] [-C
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Removes a shared setting from the DCOps Server.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-DCOpsSharedSetting -Key 'sharedkey'
 ```
 
-{{ Add example description here }}
+Removes the shared setting 'sharedkey' from the DCOps Server.
 
 ## PARAMETERS
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the shared settings from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -40,13 +41,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: The 'dcopserver' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Key
-{{ Fill Key Description }}
+Name of the shared setting to remove from the DCOps Server.
 
 ```yaml
 Type: String
@@ -105,3 +106,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsSharedSetting.md)
+[Get-DCOpsSharedSetting]()
+[about_DCOpsServer]()

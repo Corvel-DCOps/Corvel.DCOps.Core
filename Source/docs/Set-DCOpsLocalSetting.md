@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.LocalSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsLocalSetting.md
 schema: 2.0.0
 ---
 
 # Set-DCOpsLocalSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Updates or creates a setting (Key-Value pair) in the local settings file.
 
 ## SYNTAX
 
@@ -17,21 +17,22 @@ Set-DCOpsLocalSetting [-Key] <String> [-Value] <String> [-WhatIf] [-Confirm] [<C
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Updates or creates the local setting specified by Key with the Value.
+The local settings file stored at %APPDATA%\Corvel.DCOps\localsettings.json.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-DCOpsLocalSetting -Key 'mykey' -Value 'My Value'
 ```
 
-{{ Add example description here }}
+Updates or creates a new local setting with a key of 'mykey' and the value 'My Value'.
 
 ## PARAMETERS
 
 ### -Key
-{{ Fill Key Description }}
+The name of the local setting to create or update.
 
 ```yaml
 Type: String
@@ -46,7 +47,7 @@ Accept wildcard characters: False
 ```
 
 ### -Value
-{{ Fill Value Description }}
+The value of the setting.
 
 ```yaml
 Type: String
@@ -105,3 +106,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsLocalSetting.md)
+[Get-DCOpsLocalSetting]()
+[Remove-DCOpsLocalSetting]()

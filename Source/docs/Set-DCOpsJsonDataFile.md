@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.JsonData-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsJsonDataFile.md
 schema: 2.0.0
 ---
 
 # Set-DCOpsJsonDataFile
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Updates a Json Data file on the DCOps Server.
 
 ## SYNTAX
 
@@ -18,21 +18,25 @@ Set-DCOpsJsonDataFile [-Name] <String> [-InputObject] <Object[]> [[-DCOpServer] 
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Updates a Json Data file on the DCOps Server.
+The command is primarily intended to be used by other functions to update their specific data files after any
+processing of the data that needs to occur before saving the data. For example, the DCOpsSharedSetting and DCOpsCredential
+commands use this function after domain specific processing to update the back end data files.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-DCOpsJsonDataFile -Name 'jsondatafile' -InputObject $Data
 ```
 
-{{ Add example description here }}
+Creates or updates a data file called 'jsondatafile.json' with the Json representation of the data in the $Data on the DCOps Server.
 
 ## PARAMETERS
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the shared settings from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -41,13 +45,13 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: The 'dcopserver' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -InputObject
-{{ Fill InputObject Description }}
+Data to be saved to the data file. This object is converted to Json before saving.
 
 ```yaml
 Type: Object[]
@@ -62,7 +66,9 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-{{ Fill Name Description }}
+The name of the Json data file to retrieve.
+Name can be specified with or without the .json extension. If an extension is specified,
+it is removed and .json is explictily used.
 
 ```yaml
 Type: String
@@ -121,3 +127,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsJsonDataFile.md)
+[Get-DCOpsJsonDataFile]()
+[about_DCOpsServer]

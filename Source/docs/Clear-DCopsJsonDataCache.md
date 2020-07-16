@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Clear-DCopsJsonDataCache
+# Clear-DCOpsJsonDataCache
 
 ## SYNOPSIS
 Clears the cached Json data
@@ -13,7 +13,7 @@ Clears the cached Json data
 ## SYNTAX
 
 ```
-Clear-DCopsJsonDataCache [<CommonParameters>]
+Clear-DCOpsJsonDataCache [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,6 +50,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Clear-DCopsJsonDataCache.md)
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Clear-DCOpsJsonDataCache.md)
 [Get-DCOpsJsonDataCache]()
 [Get-DCOpsJsonDataFile]()

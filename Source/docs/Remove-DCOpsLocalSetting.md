@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.LocalSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsLocalSetting.md
 schema: 2.0.0
 ---
 
 # Remove-DCOpsLocalSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Removes a locally stored setting.
 
 ## SYNTAX
 
@@ -17,21 +17,22 @@ Remove-DCOpsLocalSetting [-Key] <String> [-WhatIf] [-Confirm] [<CommonParameters
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Removes a locally stored setting. 
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-DCOpsLocalSetting -Key 'somekey'
+
 ```
 
-{{ Add example description here }}
+Removes the local setting 'somekey' from the local settings file.
 
 ## PARAMETERS
 
 ### -Key
-{{ Fill Key Description }}
+Name of the local setting to remove.
 
 ```yaml
 Type: String
@@ -90,3 +91,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsLocalSetting.md)
+[Get-DCOpsLocalSetting]()

@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.Credentials-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsMasterKey.md
 schema: 2.0.0
 ---
 
 # Set-DCOpsMasterKey
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Prompts the user for the DCOps Master Key and stores it locally.
 
 ## SYNTAX
 
@@ -17,21 +17,27 @@ Set-DCOpsMasterKey [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Prompts the user for the DCOps Master Key and stores it locally.
+The DCOps Master Key is used for encrypting/decrypting the shared credentials on the DCOps Server.
+This command doesn't accept any parameters and will always prompt the user for the master key.
+If a master key is already saved locally, the user must enter the existing key unless the Force switch is used.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-DCOpsMasterKey
+Enter the existing master key: ********************************
+Enter the new master key: ********************************
+Confirm the new master key: ********************************
 ```
 
-{{ Add example description here }}
+Changes the DCOps Master key stored locally after prompting the user to enter the existing key.
 
 ## PARAMETERS
 
 ### -Force
-{{ Fill Force Description }}
+If the master key is already present, the user must enter the existing key unless this switch is used.
 
 ```yaml
 Type: SwitchParameter
@@ -88,5 +94,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Void
 
 ## NOTES
+Caution must be excercised when changing the DCOPs Master Key. If the key is changed without re-encrypting the shared credentials, the shared credentials
+can not be decrypted.
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsMasterKey.md)
+[about_DCOpsServer]()

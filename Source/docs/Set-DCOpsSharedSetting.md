@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.SharedSettings-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsSharedSetting.md
 schema: 2.0.0
 ---
 
 # Set-DCOpsSharedSetting
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Updates or creates a shared setting on the DCOps Server. 
 
 ## SYNTAX
 
@@ -18,21 +18,22 @@ Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [[-DCOpServer] <Strin
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Updates or creates a shared setting on the DCOps Server.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-DCOpsSharedSetting -Key 'sharedsetting' -Value 'new value'
 ```
 
-{{ Add example description here }}
+Creates a new shared setting (if 'sharedsetting' doesn't exist) or updates an existing shared setting (if 'sharedsetting' already exists) with 'new value'
 
 ## PARAMETERS
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the shared settings from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -41,13 +42,13 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: The 'dcopserver' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Key
-{{ Fill Key Description }}
+The name of the shared setting to update (if it already exists) or to create.
 
 ```yaml
 Type: String
@@ -62,7 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -Value
-{{ Fill Value Description }}
+The value of the shared setting.
 
 ```yaml
 Type: String[]
@@ -121,3 +122,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsSharedSetting.md)
+[Get-DCOpsSharedSetting]()
+[about_DCOpsServer]

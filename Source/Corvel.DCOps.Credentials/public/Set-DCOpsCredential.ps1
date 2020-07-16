@@ -4,14 +4,14 @@ function Set-DCOpsCredential {
     [OutputType('DCOpsCredential')]
     param (
        [Parameter(Mandatory=$true, ParameterSetName='Password')]
-       [Parameter(ParameterSetName='SecureString')]
-       [Parameter(ParameterSetName='PSCredential')]
+       [Parameter(Mandatory=$true, ParameterSetName='SecureString')]
+       [Parameter(Mandatory=$true, ParameterSetName='PSCredential')]
        [ValidateNotNullOrEmpty()]
        # Host name for the password being added
        [string]$HostName,
 
        [Parameter(Mandatory=$true, ParameterSetName='Password')]
-       [Parameter(ParameterSetname='SecureString')]
+       [Parameter(Mandatory=$true, ParameterSetname='SecureString')]
        [ValidateNotNullOrEmpty()]
        [string]$UserName,
 

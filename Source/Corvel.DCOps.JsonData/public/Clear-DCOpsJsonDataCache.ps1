@@ -1,4 +1,4 @@
-function Clear-DCopsJsonDataCache {
+function Clear-DCOpsJsonDataCache {
     [CmdletBinding()]
     [OutputType([System.Void])]
     param ()

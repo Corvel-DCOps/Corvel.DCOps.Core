@@ -1,14 +1,14 @@
 ---
 external help file: Corvel.DCOps.Credentials-help.xml
 Module Name: Corvel.DCOps.Core
-online version:
+online version: https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsCredential.md
 schema: 2.0.0
 ---
 
 # Remove-DCOpsCredential
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Remove a credential from the shared credentials on the DCOps Server.
 
 ## SYNTAX
 
@@ -25,21 +25,30 @@ Remove-DCOpsCredential -DCOpsCredential <Object> [-DCOpServer <String>] [-WhatIf
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Removes a credential from the shared credentials on the DCOps Server.
+The credential to remove can be specified by the HostName and UserName parameters or by specifying a previously 
+obtainted DCOpsCredential object (from Get-DCOpsCredential). 
+
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-DCOpsCredential -HostName 'server.domain.com' -UserName 'administrator'
 ```
 
-{{ Add example description here }}
+Removes the credential matching a host name of 'server.domain.com' and a user name of 'administrator'.
 
+### Example 1
+```powershell
+PS C:\> $Credential = Get-DCOpsCredential -HostName 'server.domain.com' -UserName 'administrator' 
+PS C:\> Remove-DCOpsCredential -DCOpsCredential $Credential
+```
+First retrieves the credential matching a host name of 'server.domain.com' and a user name of 'administrator' then removes the credential.
 ## PARAMETERS
 
 ### -DCOpsCredential
-{{ Fill DCOpsCredential Description }}
+A DCOpsCredential object (retrieved with Get-DCOpsCredential) to remove from the shared credential store.
 
 ```yaml
 Type: Object
@@ -54,7 +63,8 @@ Accept wildcard characters: False
 ```
 
 ### -DCOpServer
-{{ Fill DCOpServer Description }}
+The DCOps Server to retrieve the shared settings from. 
+The default is retrieved from the 'dcopserver' local setting.
 
 ```yaml
 Type: String
@@ -63,13 +73,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: The 'dcopserver' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -HostName
-{{ Fill HostName Description }}
+Host name of the credential to remove. 
 
 ```yaml
 Type: String
@@ -84,7 +94,7 @@ Accept wildcard characters: False
 ```
 
 ### -UserName
-{{ Fill UserName Description }}
+User name of the credential to remove
 
 ```yaml
 Type: String
@@ -143,3 +153,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsCredential.md)
+[Get-DCOpsCredential]()
+[about_DCOpsCredential]()
+[about_DCOpsServer]()

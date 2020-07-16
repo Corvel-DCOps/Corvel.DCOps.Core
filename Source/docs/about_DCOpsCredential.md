@@ -29,4 +29,4 @@ The user should not modify the Password or SecureKey fields.
 - Remove-DCOpsCredential
 - Get-DCOpsMasterKey
 - Set-DCOpsMasterKey
-- about-DCOpsServer
+- about_DCOpsServer
