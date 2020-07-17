@@ -9,10 +9,20 @@ function Get-DCOpsLocalSetting {
        [Parameter(Position=1)]
        [ValidateNotNullOrEmpty()]
        [string]$DefaultValue
-    )
-    $LocalSettingsHash = Import-DCOpsLocalSettings
+   )
+   $LocalSettingsHash = Import-DCOpsLocalSettings
 
-    if ($PSBoundParameters.ContainsKey('Key')) {
+   # Protect the Master Key
+   $Caller = (Get-PSCallStack)[1].Command
+   if ($Caller -ne 'Get-DCOpsMasterKey') {
+      if ($Key -eq 'dcopsmasterkey') {
+         Write-Warning "$Key is a system protected value"
+         return
+      } 
+      if ($LocalSettingsHash.ContainsKey('dcopsmasterkey')) { $LocalSettingsHash.Remove('dcopsmasterkey') }
+   }
+
+   if ($PSBoundParameters.ContainsKey('Key')) {
        # See if the local file had the key being looked for
        if ($LocalSettingsHash.ContainsKey($Key)) {
           return $LocalSettingsHash[$Key]

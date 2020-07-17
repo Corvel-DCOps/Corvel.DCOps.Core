@@ -33,8 +33,3 @@ if (Test-Path "$ModuleRoot\private") {
 Export-ModuleMember -Function $ExportedFunctions
 #endregion LoadScripts
 #endregion REMOVE_CODE
-
-# I don't like this hack, but it works during module loading
-if (Get-Command Get-DCOpsLocalSetting -ErrorAction SilentlyContinue) {
-    if (-not (Get-DCOpsLocalSetting -Key 'dcopsmasterkey')) { Write-Warning "DCOps Master Key not found." }
-}
