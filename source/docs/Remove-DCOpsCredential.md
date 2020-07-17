@@ -29,7 +29,6 @@ Removes a credential from the shared credentials on the DCOps Server.
 The credential to remove can be specified by the HostName and UserName parameters or by specifying a previously 
 obtainted DCOpsCredential object (from Get-DCOpsCredential). 
 
-
 ## EXAMPLES
 
 ### Example 1
@@ -44,7 +43,9 @@ Removes the credential matching a host name of 'server.domain.com' and a user na
 PS C:\> $Credential = Get-DCOpsCredential -HostName 'server.domain.com' -UserName 'administrator' 
 PS C:\> Remove-DCOpsCredential -DCOpsCredential $Credential
 ```
+
 First retrieves the credential matching a host name of 'server.domain.com' and a user name of 'administrator' then removes the credential.
+
 ## PARAMETERS
 
 ### -DCOpsCredential

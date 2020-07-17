@@ -24,7 +24,6 @@ Removes a locally stored setting.
 ### Example 1
 ```powershell
 PS C:\> Remove-DCOpsLocalSetting -Key 'somekey'
-
 ```
 
 Removes the local setting 'somekey' from the local settings file.
@@ -91,5 +90,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsLocalSetting.md)
 [Get-DCOpsLocalSetting]()

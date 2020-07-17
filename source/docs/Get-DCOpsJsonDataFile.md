@@ -67,7 +67,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value:  The 'dcopserver' local setting
+Default value: The 'dcopserver' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -116,6 +116,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Object
 
 ### System.String
+
+## NOTES
 
 ## RELATED LINKS
 

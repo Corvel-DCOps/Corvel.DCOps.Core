@@ -20,7 +20,6 @@ Get-DCOpsMasterKey [<CommonParameters>]
 The DCOps Master Key is used for encrypting/decrypting credentials stored on the DCOps Server. 
 If the the master key is not present, credentials can not be retreived. 
 
-
 ## EXAMPLES
 
 ### Example 1
@@ -47,5 +46,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsMasterKey.md)
 [Set-DCOpsMasterKey]()
