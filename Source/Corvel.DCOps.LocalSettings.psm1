@@ -5,7 +5,11 @@ $script:DefaultValues = @{
     dcopdbserver = 'hbdcdcops02'
     maxjsondatacacheage = '900'
  }
- $script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
+ if ($IsLinux) {
+     $script:LocalSettingsFile = "$env:HOME/Corvel.DCOps/localsettings.json"
+ } else {
+    $script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
+ }
 
 #region LoadScripts
 $ModulePath = $MyInvocation.MyCommand.Path
