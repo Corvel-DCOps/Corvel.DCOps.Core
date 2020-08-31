@@ -35,7 +35,7 @@ function Get-DCOpsJsonDataFileAccess {
    $AccessList = $WebResponse.Content | ConvertFrom-Json | ConvertTo-HashTable
 
    # If the file isn't in the list, then grant access
-   if (-not ($AccessList.ContainsKey($Name)) { return $true}
+   if (-not ($AccessList.ContainsKey($Name))) { return $true}
    # If there isn't anything defined for the access being requested
    if (-not ($AccessList[$Name][$Access])){ $true }
    # If the caller is in the requested access list, grant access
