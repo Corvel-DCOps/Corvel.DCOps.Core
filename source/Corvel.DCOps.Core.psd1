@@ -66,8 +66,7 @@ Description = 'Core functions used by Corvel.DCOps Modules'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @('Corvel.DCOps.Utility',
-               'Corvel.DCOps.LocalSettings',
+NestedModules = @('Corvel.DCOps.LocalSettings',
                'Corvel.DCOps.JsonData',
                'Corvel.DCOps.SharedSettings',
                'Corvel.DCOps.Credentials'
