@@ -42,24 +42,34 @@ function Get-DCOpsJsonDataFile {
 
    try {
       $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -ErrorAction SilentlyContinue
+      $StatusCode = $WebResponse.StatusCode
    } catch {
-      return $null
+      $StatusCode = $_.Exception.Response.StatusCode.value__
    } finally {
       $ProgressPreference = $SavedProgressPreference
    }
 
-   if ($WebResponse.StatusCode -ne 200) {
-      $ProgressPreference = $SavedProgressPreference
-      return $null
+   # if ($WebResponse.StatusCode -ne 200) {
+   #    $ProgressPreference = $SavedProgressPreference
+   #    return $null
+   # }
+   
+   switch ($StatusCode) {
+      200 {
+         $CacheObject.RawJson = $WebResponse.Content
+         $CacheObject.LastRetrieved = Get-Date
+         $script:DCOpsJsonDataCache.Add($CacheObject) | Out-Null
+         if ($AsJson) {
+            return $CacheObject.RawJson
+         } else {
+            return $CacheObject.DataObject
+         }
+      }
+      404 {
+         return [string]::Empty
+      }
+      default { 
+         return $null
+      }
    }
-
-    $CacheObject.RawJson = $WebResponse.Content
-    $CacheObject.LastRetrieved = Get-Date
-    $script:DCOpsJsonDataCache.Add($CacheObject) | Out-Null
-    if ($AsJson) {
-       return $CacheObject.RawJson
-    } else {
-       return $CacheObject.DataObject
-    }
-
  }
