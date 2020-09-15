@@ -5,11 +5,11 @@
 #
 # Generated on: 7/12/2020
 #
-# Temporary Module Manifest
+
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'source\Corvel.DCOps.Core.psd1'
+# RootModule = ''
 
 # Version number of this module.
 ModuleVersion = '1.0.0'
@@ -66,12 +66,11 @@ Description = 'Core functions used by Corvel.DCOps Modules'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-#NestedModules = @('Corvel.DCOps.Utility',
-#               'Corvel.DCOps.LocalSettings',
-#               'Corvel.DCOps.JsonData',
-#               'Corvel.DCOps.SharedSettings',
-#               'Corvel.DCOps.Credentials'
-#                )
+NestedModules = @('Corvel.DCOps.LocalSettings',
+               'Corvel.DCOps.JsonData',
+               'Corvel.DCOps.SharedSettings',
+               'Corvel.DCOps.Credentials'
+                )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 # FunctionsToExport = @()
