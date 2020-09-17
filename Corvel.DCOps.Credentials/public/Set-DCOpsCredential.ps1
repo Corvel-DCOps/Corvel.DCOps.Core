@@ -40,7 +40,8 @@ function Set-DCOpsCredential {
        [ValidateNotNullOrEmpty()]
        [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
     )
-
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+    
     $CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer
     if ($null -eq $CredentialStore) {
        throw 'Unable to load credential file.'

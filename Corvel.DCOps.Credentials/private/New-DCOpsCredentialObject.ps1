@@ -25,7 +25,7 @@ function New-DCopsCredentialObject {
        [ValidateNotNull()]
        [securestring]$SecureKey
     )
-
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 
     if ($PSBoundParameters.ContainsKey('Password')) {
        $SecureString = ConvertTo-SecureString $Password -AsPlainText -Force

@@ -6,6 +6,8 @@ function Import-DCOpsCredentialFile {
       # The server to retreive the data from, specified as http[s]://servername:[port]. If not specified, the 'dcopserver' local setting is used.
       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
    )
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+   
    $CredentialStore = [System.Collections.Generic.List[PSCustomObject]]@()
 
    if (-not ($MasterKey = Get-DCOpsMasterKey)) {
