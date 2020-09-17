@@ -21,6 +21,8 @@ Retrieves the specified Json data file from the DCOps Server. The command will r
 unless the AsJson switch is set. 
 If the Json data file has been retrieved recently in the current session, the data will be retrieved from the Json Data Cache unless
 the ForceRefresh switch is set.
+If the file is not found on the server, an empty string is returned. If an error occurs, $null is returned. Otherwise, the data is returned.
+Access to the data files can be restricted to certain functions by manually editing the protectedaccess.json file on the DCOps Server.
 
 ## EXAMPLES
 

@@ -15,7 +15,8 @@ function Get-DCOpsCredential {
        [string]$DCOpServer = (Get-DCOpsLocalSetting 'dcopserver')
     )
 
-    if (-not ($CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer)) {
+    $CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer
+    if ($null -eq $CredentialStore) {
        throw 'Unable to load credential file.'
        return
     }
