@@ -9,7 +9,7 @@ function Remove-DCOpsSharedSetting {
        [ValidateNotNullOrEmpty()]
        [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
     )
-
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     if (-not ($SharedSettingsHash = Get-DCOPsSharedSetting -DCOpServer $DCOpServer)) {
        throw 'Unable to get Shared Settings'
        return

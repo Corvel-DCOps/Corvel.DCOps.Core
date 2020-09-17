@@ -7,6 +7,8 @@ function Remove-DCOpsLocalSetting {
        [Alias('Name')]
        [string]$Key
     )
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+    
     $LocalSettingsHash = Import-DCOpsLocalSettings
     if ($LocalSettingsHash.ContainsKey($Key)) {
        if ($PSCmdlet.ShouldProcess($Key, "Removing setting")) {

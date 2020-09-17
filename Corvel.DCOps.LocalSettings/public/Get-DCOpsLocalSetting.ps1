@@ -10,6 +10,8 @@ function Get-DCOpsLocalSetting {
        [ValidateNotNullOrEmpty()]
        [string]$DefaultValue
    )
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+   
    $LocalSettingsHash = Import-DCOpsLocalSettings
 
    # Protect the Master Key

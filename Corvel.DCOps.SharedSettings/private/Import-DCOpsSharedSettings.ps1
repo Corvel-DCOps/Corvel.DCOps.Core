@@ -5,6 +5,7 @@ function Import-DCOpsSharedSettings {
        [ValidateNotNullOrEmpty()]
        [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
     )
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     $SharedSettingsHash = @{}
 
     $SharedSettingsJson = Get-DCOpsJsonDataFile -Name 'sharedsettings' -DCOpServer $DCOpServer

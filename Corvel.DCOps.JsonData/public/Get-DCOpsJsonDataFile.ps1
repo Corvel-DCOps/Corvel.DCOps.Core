@@ -11,6 +11,7 @@ function Get-DCOpsJsonDataFile {
       [switch]$AsJson
 
    )
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    $Caller = (Get-PSCallStack)[1].Command
    $MaxJsonDataCacheAge = [int](Get-DCOpsLocalSetting -Name 'maxjsondatacacheage')
    $FileName = [System.IO.Path]::GetFileNameWithoutExtension($Name)

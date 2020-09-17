@@ -12,6 +12,7 @@ function Set-DCOpsJsonDataFile {
       [ValidateNotNullOrEmpty()]
       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
    )
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    $Caller = (Get-PSCallStack)[1].Command
    $JsonDataShare = Get-DCOpsSharedSetting -Key 'jsondatashare' -DCOpServer $DCOpServer
    if (-not(Test-Path $JsonDataShare)) {

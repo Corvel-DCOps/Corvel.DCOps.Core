@@ -12,7 +12,7 @@ function Set-DCOpsSharedSetting {
       [ValidateNotNullOrEmpty()]
       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
    )
-
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    if (-not ($SharedSettingsHash = Import-DCOpsSharedSettings -DCOpServer $DCOpServer)) {
       throw 'Unabled to get Shared Settings'
       return

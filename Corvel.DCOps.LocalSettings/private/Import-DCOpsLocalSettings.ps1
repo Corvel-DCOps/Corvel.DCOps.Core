@@ -2,6 +2,7 @@ function Import-DCOpsLocalSettings {
     [CmdletBinding()]
     [OutputType([hashtable])]
     param()
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     $LocalSettingsHash = @{}
     # If we have a local file, load it and convert to a hashtable
     if (Test-Path $script:LocalSettingsFile) {

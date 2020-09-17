@@ -15,7 +15,7 @@ function Remove-DCOpsCredential {
       [ValidateNotNullOrEmpty()]
       [string]$DCOpServer = (Get-DCOpsLocalSetting -Key 'dcopserver')
    )
-
+   Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    if (-not ($CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer)) {
       throw 'Unable to load credential file.'
       return

@@ -9,6 +9,8 @@ function New-DCOpsJsonDataCacheObject {
        [ValidateNotNullOrEmpty()]
        [string]$RawJson
     )
+    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
+    
     $NewObject = [PSCustomObject][ordered]@{PSTypeName = 'JsonDataCacheObject'
        Name = $Name
        LastRetrieved = $LastRetrieved
