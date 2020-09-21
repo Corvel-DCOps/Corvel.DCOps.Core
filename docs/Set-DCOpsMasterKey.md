@@ -100,4 +100,4 @@ can not be decrypted.
 ## RELATED LINKS
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsMasterKey.md)
-[about_DCOpsServer]()
+[about_DCOpsHost]()

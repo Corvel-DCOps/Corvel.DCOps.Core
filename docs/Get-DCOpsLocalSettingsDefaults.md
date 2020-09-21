@@ -32,7 +32,7 @@ Name                           Value
 ----                           -----
 maxjsondatacacheage            900
 dcopdbserver                   hbdcdcops02
-dcopserver                     https://dcops.corvel.com
+dcopshost                      https://dcops.corvel.com
 ```
 
 Returns the currently defined system defaults.

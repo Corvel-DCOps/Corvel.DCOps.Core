@@ -13,7 +13,7 @@ Updates or creates a shared setting on the DCOps Host.
 ## SYNTAX
 
 ```
-Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [[-DCOpServer] <String>] [-WhatIf] [-Confirm]
+Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 

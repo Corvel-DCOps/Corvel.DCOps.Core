@@ -14,7 +14,7 @@ Retrieves shared credentials from the DCOps Host.
 
 ```
 Get-DCOpsCredential [[-HostName] <String>] [[-UserName] <String>] [[-Description] <String>]
- [[-DCOpHost] <String>] [<CommonParameters>]
+ [[-DCOpsHost] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
