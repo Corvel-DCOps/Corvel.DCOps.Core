@@ -6,13 +6,13 @@ function Export-DCOpsCredentialFile {
        [ValidateNotNullOrEmpty()]
        [System.Collections.Generic.List[PSCustomObject]]$InputObject,
        [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+       [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
 
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     
     $ExportObject = $InputObject | Select-Object HostName, UserName, Description, @{N='encryptedpassword'; E={$_.ToEncryptedString()}}
     if ($PSCmdlet.ShouldProcess('Saving DCOps Credential File', $null, $null)) {
-       Set-DCOpsJsonDataFile -Name 'dcopscredentials' -InputObject $ExportObject -DCOpServer $DCOpServer
+       Set-DCOpsJsonDataFile -Name 'dcopscredentials' -InputObject $ExportObject -DCOpsHost $DCOpsHost
     }
  }

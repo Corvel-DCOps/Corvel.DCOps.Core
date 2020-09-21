@@ -3,12 +3,12 @@ function Import-DCOpsSharedSettings {
     [OutputType([hashtable])]
     param (
        [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+       [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     $SharedSettingsHash = @{}
 
-    $SharedSettingsJson = Get-DCOpsJsonDataFile -Name 'sharedsettings' -DCOpServer $DCOpServer
+    $SharedSettingsJson = Get-DCOpsJsonDataFile -Name 'sharedsettings' -DCOpsHost $DCOpsHost
     if ($SharedSettingsJson) {
        $SharedSettingsJson | Get-Member -MemberType NoteProperty | ForEach-Object {
           $SharedSettingsHash[$_.Name] = $SharedSettingsJson.($_.Name)

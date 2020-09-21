@@ -38,11 +38,11 @@ function Set-DCOpsCredential {
        [PSTypeName('DCOpsCredential')]$DCOpsCredential,
 
        [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+       [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     
-    $CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer
+    $CredentialStore = Import-DCOpsCredentialFile -DCOpsHost $DCOpsHost
     if ($null -eq $CredentialStore) {
        throw 'Unable to load credential file.'
     }
@@ -83,7 +83,7 @@ function Set-DCOpsCredential {
     }
     if ($CreateParams.ContainsKey('Description')) { $SearchParams['Description'] = $CreateParams['Description'] }
 
-    $Credential = Get-DCOpsCredential @SearchParams -DCOpServer $DCopServer
+    $Credential = Get-DCOpsCredential @SearchParams -DCOpsHost $DCOpsHost
     if ($Credential) {
        $CredentialStore.Remove($Credential) | Out-Null
     }
@@ -91,7 +91,7 @@ function Set-DCOpsCredential {
     $Credential = New-DCOPsCredentialObject @CreateParams
     if ($PSCmdlet.ShouldProcess("$($Credential.UserName)@$($Credential.HostName)", "Updating DCOps Credential")) {
        $CredentialStore.Add($Credential) | Out-Null
-       Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpServer $DCopServer
+       Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpsHost $DCOpsHost
     }
 
     return $Credential

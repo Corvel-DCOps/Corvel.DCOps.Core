@@ -13,10 +13,10 @@ function Remove-DCOpsCredential {
       [ValidateNotNullOrEmpty()]
       [PSTypeName('DCOpsCredential')]$DCOpsCredential,
       [ValidateNotNullOrEmpty()]
-      [string]$DCOpServer = (Get-DCOpsLocalSetting -Key 'dcopserver')
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Key 'dcopshost')
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
-   if (-not ($CredentialStore = Import-DCOpsCredentialFile -DCOpServer $DCOpServer)) {
+   if (-not ($CredentialStore = Import-DCOpsCredentialFile -DCOpsHost $DCOpsHost)) {
       throw 'Unable to load credential file.'
       return
    }
@@ -31,7 +31,7 @@ function Remove-DCOpsCredential {
    }
    if ($PSCmdlet.ShouldProcess("$($Credential.UserName)@$($Credential.HostName)", 'Removing credential')) {
       $CredentialStore.Remove($Credential) | Out-Null
-      Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpServer $DCOpServer
+      Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpsHost $DCOpsHost
    }
 
 }

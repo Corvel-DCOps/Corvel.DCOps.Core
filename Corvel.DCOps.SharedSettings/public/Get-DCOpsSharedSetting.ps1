@@ -10,10 +10,10 @@ function Get-DCOPsSharedSetting {
        [ValidateNotNullOrEmpty()]
        [string]$DefaultValue,
        [ValidateNotNullOrEmpty()]
-       [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+       [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
-    $SharedSettingsHash = Import-DCOpsSharedSettings -DCOpServer $DCOpServer
+    $SharedSettingsHash = Import-DCOpsSharedSettings -DCOpsHost $DCOpsHost
 
     if ($PSBoundParameters.ContainsKey('Key')) {
        # See if the local file had the key being looked for

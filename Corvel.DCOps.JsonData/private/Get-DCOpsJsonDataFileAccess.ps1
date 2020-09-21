@@ -11,14 +11,14 @@ function Get-DCOpsJsonDataFileAccess {
       [ValidateSet('Read', 'Write')]
       [string]$Access = 'Read',
       [ValidateNotNullOrEmpty()]
-      [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    
    $SavedProgressPreference = $ProgressPreference
    $ProgressPreference = 'SilentlyContinue'
 
-   $Uri = "$DCOpServer/jsondata/protectedaccess.json"
+   $Uri = "$DCOpsHost/jsondata/protectedaccess.json"
    $Headers = @{
       'Accept' = 'application/json'
    }

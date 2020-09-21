@@ -10,11 +10,11 @@ function Set-DCOpsJsonDataFile {
       [Alias('DataObject')]
       [object[]]$InputObject,
       [ValidateNotNullOrEmpty()]
-      [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    $Caller = (Get-PSCallStack)[1].Command
-   $JsonDataShare = Get-DCOpsSharedSetting -Key 'jsondatashare' -DCOpServer $DCOpServer
+   $JsonDataShare = Get-DCOpsSharedSetting -Key 'jsondatashare' -DCOpsHost $DCOpsHost
    if (-not(Test-Path $JsonDataShare)) {
       throw "Json data share ($JsonDataShare) not accessible."
    }
