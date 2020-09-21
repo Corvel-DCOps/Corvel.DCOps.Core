@@ -1,6 +1,6 @@
-function New-DCOpsHostObject {
+function New-DCOpsServerObject {
    [CmdletBinding()]
-   [OutputType('DCOpsHost')]
+   [OutputType('DCOpsServer')]
    param (
       [Parameter(Mandatory=$true)]
       [ValidateNotNullOrEmpty()]
@@ -26,7 +26,7 @@ function New-DCOpsHostObject {
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    
-   $NewObject  = [PSCustomObject][ordered]@{PSTypeName = 'DCOpsHost'
+   $NewObject  = [PSCustomObject][ordered]@{PSTypeName = 'DCOpsServer'
       ServerType = $ServerType
       DisplayName = $DisplayName
       HostName = $HostName

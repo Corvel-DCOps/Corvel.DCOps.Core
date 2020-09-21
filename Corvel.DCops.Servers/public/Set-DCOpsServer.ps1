@@ -1,4 +1,4 @@
-function Set-DCOpsHost {
+function Set-DCOpsServer {
    [CmdletBinding()]
    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
    param ()
