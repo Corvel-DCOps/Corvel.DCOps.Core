@@ -1,11 +1,11 @@
-﻿# DCOpsServer
-## about_DCOpsServer
+﻿# DCOpsHost
+## about_DCOpsHost
 
 # SHORT DESCRIPTION
-The DCOps Server is a centrally accesible server used by the Datacenter team.
+The DCOps Host is a centrally accesible server used by the Datacenter team.
 
 # LONG DESCRIPTION
-The DCOps Server is a centrally accesible server used by the Datacenter team 
+The DCOps Host is a centrally accesible server used by the Datacenter team 
 to provide a variety of services such as shared settings, credentials and a 
 PowerShell repository. 
 
@@ -14,16 +14,16 @@ https access to shared Json data files used for shared settings, shared credenti
 and the 'DCOpsRepo' (the Datacenter team PowerShell repository). Additionally, the 
 server also serves as the 'ScriptingServer' for running automation tasks.
 
-In DNS, a cname record ('dcops.corvel.com') point to the actual Windows server with the 
+In DNS, a cname record ('dcops.corvel.com') points to the actual Windows server with the 
 shared services. 
 
-Commands that rely on the DCOps Server have an optional parameter (DCOpsServer) to specify
+Commands that rely on the DCOps Host have an optional parameter (DCOpsHost) to specify
 the DCOps Server. If the parameter is not specified (which it usually doesn't need to be),
-the local setting 'dcopserver' is used and, if that isn't present, the System Default 
+the local setting 'dcopshost' is used and, if that isn't present, the System Default 
 (a hard coded value) is used. The Parameter primarily exists to aid the development efforts
 for this and other modules. 
 
 # SEE ALSO
-- Online Version https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/about_DCOPsServer.md
+- Online Version https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/about_DCOPsHost.md
 - Get-DCOpsLocalSetting
 - Set-DCOpsLocalSetting

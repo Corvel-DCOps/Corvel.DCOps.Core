@@ -8,24 +8,24 @@ schema: 2.0.0
 # Remove-DCOpsCredential
 
 ## SYNOPSIS
-Remove a credential from the shared credentials on the DCOps Server.
+Remove a credential from the shared credentials on the DCOps Host.
 
 ## SYNTAX
 
 ### Search
 ```
-Remove-DCOpsCredential -HostName <String> -UserName <String> [-DCOpServer <String>] [-WhatIf] [-Confirm]
+Remove-DCOpsCredential -HostName <String> -UserName <String> [-DCOpsHost <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### DCOpCredential
 ```
-Remove-DCOpsCredential -DCOpsCredential <Object> [-DCOpServer <String>] [-WhatIf] [-Confirm]
+Remove-DCOpsCredential -DCOpsCredential <Object> [-DCOpsHost <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Removes a credential from the shared credentials on the DCOps Server.
+Removes a credential from the shared credentials on the DCOps Host.
 The credential to remove can be specified by the HostName and UserName parameters or by specifying a previously 
 obtainted DCOpsCredential object (from Get-DCOpsCredential). 
 
@@ -63,9 +63,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DCOpServer
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the shared settings from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -74,7 +74,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: The 'dcopserver' local setting
+Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -158,4 +158,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsCredential.md)
 [Get-DCOpsCredential]()
 [about_DCOpsCredential]()
-[about_DCOpsServer]()
+[about_DCOpsHost]()

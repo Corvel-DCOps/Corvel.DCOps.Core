@@ -8,21 +8,21 @@ schema: 2.0.0
 # Get-DCOpsCredential
 
 ## SYNOPSIS
-Retrieves shared credentials from the DCOps Server.
+Retrieves shared credentials from the DCOps Host.
 
 ## SYNTAX
 
 ```
 Get-DCOpsCredential [[-HostName] <String>] [[-UserName] <String>] [[-Description] <String>]
- [[-DCOpServer] <String>] [<CommonParameters>]
+ [[-DCOpHost] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Retrieves shared credentials from the DCOps Server corresponding to the filter criteria define
+Retrieves shared credentials from the DCOps Host corresponding to the filter criteria define
 by the HostName, UserName and Description parameters. All three parameters support wildcards.
 If no criteria is specified, all shared credentials are returned.
 If no matches are found, Null is returned.
-If DCOpsServer is not specified, the default from the 'dcopserver' local setting. is used.
+If DCOpsHost is not specified, the default from the 'dcopshost' local setting. is used.
 
 ## EXAMPLES
 
@@ -35,9 +35,9 @@ Retrieves all credentials where the HostName begins with 'hbdcdcops'.
 
 ## PARAMETERS
 
-### -DCOpServer
-The DCOps Server to retrieve the credentials from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the credentials from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -46,7 +46,7 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: The 'dcopserver' local setting
+Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -115,4 +115,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Set-DCOpsCredential]()
 [Remove-DCOpsCredential]()
 [about_DCOpsCredential]()
-[about-DCOpsServer]()
+[about-DCOpsHost]()

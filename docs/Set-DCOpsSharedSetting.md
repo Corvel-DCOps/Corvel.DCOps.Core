@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-DCOpsSharedSetting
 
 ## SYNOPSIS
-Updates or creates a shared setting on the DCOps Server. 
+Updates or creates a shared setting on the DCOps Host. 
 
 ## SYNTAX
 
@@ -18,7 +18,7 @@ Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [[-DCOpServer] <Strin
 ```
 
 ## DESCRIPTION
-Updates or creates a shared setting on the DCOps Server.
+Updates or creates a shared setting on the DCOps Host.
 
 ## EXAMPLES
 
@@ -31,9 +31,9 @@ Creates a new shared setting (if 'sharedsetting' doesn't exist) or updates an ex
 
 ## PARAMETERS
 
-### -DCOpServer
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the shared settings from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -42,7 +42,7 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: The 'dcopserver' local setting.
+Default value: The 'dcopshost' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -125,4 +125,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsSharedSetting.md)
 [Get-DCOpsSharedSetting]()
-[about_DCOpsServer]
+[about_DCOpsHost]
