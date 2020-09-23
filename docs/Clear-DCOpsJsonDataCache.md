@@ -31,7 +31,7 @@ PS C:\> Clear-DCOpsJsonDataCache
 ```
 
 After calling this cmdlet, all objects in the cache are removed and subsequent calls to Get-DCOpsJsonDataFile
-will retrieve a fresh copy of the Json data file from the DCOps Server.
+will retrieve a fresh copy of the Json data file from the DCOps Host.
 
 ## PARAMETERS
 

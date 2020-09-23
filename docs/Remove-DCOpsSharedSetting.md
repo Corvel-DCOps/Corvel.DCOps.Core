@@ -8,16 +8,16 @@ schema: 2.0.0
 # Remove-DCOpsSharedSetting
 
 ## SYNOPSIS
-Removes a shared setting from the DCOps Server.
+Removes a shared setting from the DCOps Host.
 
 ## SYNTAX
 
 ```
-Remove-DCOpsSharedSetting [-Key] <String> [[-DCOpServer] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-DCOpsSharedSetting [-Key] <String> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Removes a shared setting from the DCOps Server.
+Removes a shared setting from the DCOps Host.
 
 ## EXAMPLES
 
@@ -26,13 +26,13 @@ Removes a shared setting from the DCOps Server.
 PS C:\> Remove-DCOpsSharedSetting -Key 'sharedkey'
 ```
 
-Removes the shared setting 'sharedkey' from the DCOps Server.
+Removes the shared setting 'sharedkey' from the DCOps Host.
 
 ## PARAMETERS
 
-### -DCOpServer
+### -DCOpsHost
 The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -41,13 +41,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: The 'dcopserver' local setting.
+Default value: The 'dcopshost' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Key
-Name of the shared setting to remove from the DCOps Server.
+Name of the shared setting to remove from the DCOps Host.
 
 ```yaml
 Type: String
@@ -109,4 +109,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Remove-DCOpsSharedSetting.md)
 [Get-DCOpsSharedSetting]()
-[about_DCOpsServer]()
+[about_DCOpsHost]()

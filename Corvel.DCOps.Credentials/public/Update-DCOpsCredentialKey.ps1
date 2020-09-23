@@ -6,7 +6,7 @@ function Update-DCOpsCredentialKey {
       [ValidateNotNullOrEmpty()]
       [securestring]$NewKey = (New-EncryptionKey -AsSecureString),
       [ValidateNotNullOrEmpty()]
-      [string]$DCOpServer = (Get-DCOpsLocalSetting 'dcopserver'),
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting 'dcopshost'),
       [switch]$SaveKey,
       [switch]$SkipBackup,
       [switch]$Force
@@ -18,7 +18,7 @@ function Update-DCOpsCredentialKey {
       $ConfirmPreference = 'None'
    }
 
-   $Credentials = Get-DCOpsJsonDataFile -Name 'dcopscredentials' -DCOpServer $DCOpServer
+   $Credentials = Get-DCOpsJsonDataFile -Name 'dcopscredentials' -DCOpsHost $DCOpsHost
    foreach ($Credential in $Credentials) {
       $Params = @{
          HostName = $Credential.hostname
@@ -44,7 +44,7 @@ function Update-DCOpsCredentialKey {
          }
       } 
       try {
-         Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpServer $DCOpServer -Confirm:$false
+         Export-DCOpsCredentialFile -InputObject $CredentialStore -DCOpsHost $DCOpsHost -Confirm:$false
       } catch {
          throw 'Unable to export new credential file.'
       }

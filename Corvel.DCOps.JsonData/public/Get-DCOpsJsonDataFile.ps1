@@ -7,7 +7,7 @@ function Get-DCOpsJsonDataFile {
       [string]$Name,
       [switch]$ForceRefresh,
       [ValidateNotNullOrEmpty()]
-      [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver'),
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost'),
       [switch]$AsJson
 
    )
@@ -36,7 +36,7 @@ function Get-DCOpsJsonDataFile {
    $SavedProgressPreference = $ProgressPreference
    $ProgressPreference = 'SilentlyContinue'
 
-   $Uri = "$DCOpServer/jsondata/$($FileName).json"
+   $Uri = "$DCOpsHost/jsondata/$($FileName).json"
    $Headers = @{
       'Accept' = 'application/json'
    }

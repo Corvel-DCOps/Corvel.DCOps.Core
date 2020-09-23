@@ -26,11 +26,11 @@ If no Key is specified, the DefaultValue parameter is ignored.
 
 ### Example 1
 ```powershell
-PS C:\> Get-DCOpsLocalSetting -Key 'dcopserver'
+PS C:\> Get-DCOpsLocalSetting -Key 'dcopshost'
 https://dcops.corvel.com
 ```
 
-Returns the current value of the 'dcopserver' local setting.
+Returns the current value of the 'dcopshost' local setting.
 
 ### Example 2
 ```powershell
@@ -46,7 +46,7 @@ PS C:\> Get-DCOpsLocalSetting
 Name                           Value
 ----                           -----
 dcopdbserver                   HBDCDCOPS02
-dcopserver                     http://hbdcdcops06.corvel.com
+dcopshost                      https://dcops.corvel.com
 ```
 
 Returns a hashtable of all the Key-Value pairs in the local settings file. 

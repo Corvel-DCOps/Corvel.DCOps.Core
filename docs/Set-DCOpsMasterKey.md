@@ -18,7 +18,7 @@ Set-DCOpsMasterKey [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 ## DESCRIPTION
 Prompts the user for the DCOps Master Key and stores it locally.
-The DCOps Master Key is used for encrypting/decrypting the shared credentials on the DCOps Server.
+The DCOps Master Key is used for encrypting/decrypting the shared credentials on the DCOps Host.
 This command doesn't accept any parameters and will always prompt the user for the master key.
 If a master key is already saved locally, the user must enter the existing key unless the Force switch is used.
 
@@ -100,4 +100,4 @@ can not be decrypted.
 ## RELATED LINKS
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsMasterKey.md)
-[about_DCOpsServer]()
+[about_DCOpsHost]()

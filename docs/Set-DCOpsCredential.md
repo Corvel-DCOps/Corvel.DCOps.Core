@@ -8,35 +8,35 @@ schema: 2.0.0
 # Set-DCOpsCredential
 
 ## SYNOPSIS
-Creates a new shared credential or updates an existing shared credential on the DCOps Server.
+Creates a new shared credential or updates an existing shared credential on the DCOps Host.
 
 ## SYNTAX
 
 ### Password (Default)
 ```
 Set-DCOpsCredential -HostName <String> -UserName <String> [-Description <String>] -Password <String>
- [-DCOpServer <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSCredential
 ```
 Set-DCOpsCredential -HostName <String> [-Description <String>] -PSCredential <PSCredential>
- [-DCOpServer <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### SecureString
 ```
 Set-DCOpsCredential -HostName <String> -UserName <String> [-Description <String>] -SecureString <SecureString>
- [-DCOpServer <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DCOpsCredential
 ```
-Set-DCOpsCredential -DCOpsCredential <Object> [-DCOpServer <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsCredential -DCOpsCredential <Object> [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Creates a new shared credential or updates an existing shared credential on the DCOps Server.
+Creates a new shared credential or updates an existing shared credential on the DCOps Host.
 The credential to create can be specified by host name, user name and password, host name, user name a SecureString 
 containing the password, hostname and a PSCredential object containing the user name and password or an existing
 DCOpsCredential object (retrieved by Get-DCOpsCredential).
@@ -71,9 +71,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DCOpServer
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the shared settings from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -82,7 +82,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: The 'dcopserver' local setting.
+Default value: The 'dcopshost' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -229,4 +229,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Get-DCOpsCredential]()
 [Remove-DCopsCredential]()
 [about_DCOpsCredential]()
-[about_DCOpsServer]()
+[about_DCOpsHost]()

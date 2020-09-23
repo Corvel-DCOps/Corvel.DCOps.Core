@@ -3,8 +3,8 @@ function Import-DCOpsCredentialFile {
    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
    param (
       [ValidateNotNullOrEmpty()]
-      # The server to retreive the data from, specified as http[s]://servername:[port]. If not specified, the 'dcopserver' local setting is used.
-      [string]$DCOpServer = (Get-DCOpsLocalSetting -Name 'dcopserver')
+      # The server to retreive the data from, specified as http[s]://servername:[port]. If not specified, the 'dcopshost' local setting is used.
+      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    
@@ -16,7 +16,7 @@ function Import-DCOpsCredentialFile {
    }
 
    # Now, let's get the credentials from the server
-   $Credentials = Get-DCOpsJsonDataFile -Name 'dcopscredentials' -DCOpServer $DCOpServer
+   $Credentials = Get-DCOpsJsonDataFile -Name 'dcopscredentials' -DCOpsHost $DCOpsHost
    if ($null -eq $Credentials) {
       throw 'Unable to load credential file.'
       return

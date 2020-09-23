@@ -8,21 +8,21 @@ schema: 2.0.0
 # Get-DCOpsJsonDataFile
 
 ## SYNOPSIS
-Retrieves a Json data file from the DCOps Server.
+Retrieves a Json data file from the DCOps Host.
 
 ## SYNTAX
 
 ```
-Get-DCOpsJsonDataFile [-Name] <String> [-ForceRefresh] [[-DCOpServer] <String>] [-AsJson] [<CommonParameters>]
+Get-DCOpsJsonDataFile [-Name] <String> [-ForceRefresh] [[-DCOpsHost] <String>] [-AsJson] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Retrieves the specified Json data file from the DCOps Server. The command will return the Json data convert to a PSCustomObject 
+Retrieves the specified Json data file from the DCOps Host. The command will return the Json data convert to a PSCustomObject 
 unless the AsJson switch is set. 
 If the Json data file has been retrieved recently in the current session, the data will be retrieved from the Json Data Cache unless
 the ForceRefresh switch is set.
 If the file is not found on the server, an empty string is returned. If an error occurs, $null is returned. Otherwise, the data is returned.
-Access to the data files can be restricted to certain functions by manually editing the protectedaccess.json file on the DCOps Server.
+Access to the data files can be restricted to certain functions by manually editing the protectedaccess.json file on the DCOps Host.
 
 ## EXAMPLES
 
@@ -31,15 +31,15 @@ Access to the data files can be restricted to certain functions by manually edit
 PS C:\> Get-DCOpsJsonDataFile -Name 'somedata'
 ```
 
-Retrieves the Json Data file called 'somedata.json' from the DCOps Server and returns a PSCustomObject from the data.
+Retrieves the Json Data file called 'somedata.json' from the DCOps Host and returns a PSCustomObject from the data.
 
 ### Example 2
 ```powershell
 PS C:\> Get-DCOpsJsonDataFile -Name 'somedata' -ForceRefresh -AsJson
 ```
 
-Retrieves the Json Data file called 'somedata.json' from the DCOps Server and returns the raw Json data. If data is 
-in the Json Data cache, it is ignored and the data if retrieved directly from the DCOps Server.
+Retrieves the Json Data file called 'somedata.json' from the DCOps Host and returns the raw Json data. If data is 
+in the Json Data cache, it is ignored and the data if retrieved directly from the DCOps Host.
 
 ## PARAMETERS
 
@@ -58,9 +58,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DCOpServer
-The DCOps Server to retrieve the Json data file from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the Json data file from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -69,7 +69,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: The 'dcopserver' local setting
+Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -125,4 +125,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Get-DCOpsJsonDataFile.md)
 [Set-DCOpsJsonDataFile]()
-[about_DCopsServer]()
+[about_DCopsHost]()

@@ -8,16 +8,16 @@ schema: 2.0.0
 # Get-DCOPsSharedSetting
 
 ## SYNOPSIS
-Retrieve the specified shared setting from the DCOps Server.
+Retrieve the specified shared setting from the DCOps Host.
 
 ## SYNTAX
 
 ```
-Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String>] [-DCOpServer <String>] [<CommonParameters>]
+Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String>] [-DCOpsHost <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Retrieves the shared setting specified by Key from the DCOps Server.
+Retrieves the shared setting specified by Key from the DCOps Host.
 If no Key is specified, all shared settings are returned, otherwise just the value of the setting is returned.
 If the Key is not found then the DefaultValue is returned.
 If no Key is specified, the DefaultValue parameter is ignored.
@@ -42,9 +42,9 @@ Attempts to retrieve the shared setting 'nokeyfound' from the DCOps Server and r
 
 ## PARAMETERS
 
-### -DCOpServer
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the shared settings from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -53,13 +53,13 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: The 'dcopserver' local setting
+Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -DefaultValue
-The value to return if the Key is not found in the shared settings on the DCOps Server.
+The value to return if the Key is not found in the shared settings on the DCOps Host.
 
 ```yaml
 Type: String
@@ -74,8 +74,8 @@ Accept wildcard characters: False
 ```
 
 ### -Key
-The Key to search for in the shared settings on the DCOps Server.
-If not specified, all Key-Value pairs from the DCOps Server are returned. 
+The Key to search for in the shared settings on the DCOps Host.
+If not specified, all Key-Value pairs from the DCOps Host are returned. 
 
 ```yaml
 Type: String

@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-DCOpsMasterKey
 
 ## SYNOPSIS
-Retrieves the current DCOps Master Key used for decrypting credentials on the DCOps Server. 
+Retrieves the current DCOps Master Key used for decrypting credentials on the DCOps Host. 
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Get-DCOpsMasterKey [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The DCOps Master Key is used for encrypting/decrypting credentials stored on the DCOps Server. 
+The DCOps Master Key is used for encrypting/decrypting credentials stored on the DCOps Host. 
 If the the master key is not present, credentials can not be retreived. 
 
 ## EXAMPLES

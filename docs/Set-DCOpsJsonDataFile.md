@@ -8,17 +8,17 @@ schema: 2.0.0
 # Set-DCOpsJsonDataFile
 
 ## SYNOPSIS
-Updates a Json Data file on the DCOps Server.
+Updates a Json Data file on the DCOps Host.
 
 ## SYNTAX
 
 ```
-Set-DCOpsJsonDataFile [-Name] <String> [-InputObject] <Object[]> [[-DCOpServer] <String>] [-WhatIf] [-Confirm]
+Set-DCOpsJsonDataFile [-Name] <String> [-InputObject] <Object[]> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Updates a Json Data file on the DCOps Server.
+Updates a Json Data file on the DCOps Host.
 The command is primarily intended to be used by other functions to update their specific data files after any
 processing of the data that needs to occur before saving the data. For example, the DCOpsSharedSetting and DCOpsCredential
 commands use this function after domain specific processing to update the back end data files.
@@ -34,9 +34,9 @@ Creates or updates a data file called 'jsondatafile.json' with the Json represen
 
 ## PARAMETERS
 
-### -DCOpServer
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopserver' local setting.
+### -DCOpsHost
+The DCOps Host to retrieve the shared settings from. 
+The default is retrieved from the 'dcopshost' local setting.
 
 ```yaml
 Type: String
@@ -45,7 +45,7 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: The 'dcopserver' local setting.
+Default value: The 'dcopshost' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -130,4 +130,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsJsonDataFile.md)
 [Get-DCOpsJsonDataFile]()
-[about_DCOpsServer]
+[about_DCOpsHost]
