@@ -3,7 +3,7 @@ function New-DCOpsServerObject {
    [OutputType('DCOpsServer')]
    param (
       [Parameter(Mandatory=$true)]
-      [ValidateNotNullOrEmpty()]
+      [ValidateScript({$_ -in (Get-DCOpsServerType)})]
       [string]$ServerType,
       [Parameter(Mandatory=$true)]
       [ValidateNotNullOrEmpty()]
@@ -12,24 +12,21 @@ function New-DCOpsServerObject {
       [ValidateNotNullOrEmpty()]
       [string]$HostName,
       [Parameter(Mandatory=$true)]
-      [ValidateNotNullOrEmpty()]
-      [ValidateSet('Production', 'Lab', 'Corporate')]
+      [ValidateScript({$_ -in (Get-DCOpsEnvironment)})]
       [string]$Environment,
       [Parameter(Mandatory=$true)]
-      [ValidateNotNullOrEmpty()]
-      [ValidateSet('HBDC', 'LVDC', 'LBDC')]
+      [ValidateScript({$_ -in (Get-DCOpsLocation)})]
       [string]$Location,
-      [ValidateNotNullOrEmpty()]
       [System.Collections.Generic.List[string]]$IPAddress = @(),
-      [ValidateNotNullOrEmpty()]
       [hashtable]$Custom = @{}
    )
+   
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    
    $NewObject  = [PSCustomObject][ordered]@{PSTypeName = 'DCOpsServer'
       ServerType = $ServerType
-      DisplayName = $DisplayName
       HostName = $HostName
+      DisplayName = $DisplayName      
       Environment = $Environment
       Location = $Location
       IPAddress = $IPAddress

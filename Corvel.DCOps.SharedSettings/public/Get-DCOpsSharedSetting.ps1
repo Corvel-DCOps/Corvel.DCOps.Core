@@ -1,6 +1,6 @@
 function Get-DCOPsSharedSetting {
     [CmdletBinding()]
-    [OutputType([hashtable], [string])]
+    [OutputType([hashtable], [string], [string[]])]
     param (
        [Parameter(Position=0)]
        [ValidateNotNullOrEmpty()]
@@ -8,7 +8,7 @@ function Get-DCOPsSharedSetting {
        [string]$Key,
        [Parameter(Position=1)]
        [ValidateNotNullOrEmpty()]
-       [string]$DefaultValue,
+       [string[]]$DefaultValue,
        [ValidateNotNullOrEmpty()]
        [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
     )
@@ -21,7 +21,7 @@ function Get-DCOPsSharedSetting {
           return $SharedSettingsHash[$Key]
        } else {
           # If a default was supplied or we have one, return it
-          if ($PSBoundParameters.ContainsKey($DefaultValue)) {
+          if ($PSBoundParameters.ContainsKey('DefaultValue')) {
              return $DefaultValue
           } else {
              return [string]::Empty

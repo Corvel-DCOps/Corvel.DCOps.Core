@@ -1,3 +1,7 @@
+$script:DCOpsEnvironmentDefaults = @('Production', 'Corporate', 'Lab')
+$script:DCOpsLocationDefaults = @('HBDC', 'LVDC', 'LBDC')
+$script:DCOpsServerTypeDefaults = @('vcenter', 'loginsight', 'recoverpointvm', 'hpeoneview', 'storagesystem')
+
 #region REMOVE_CODE
 # Code in this region will be removed during the build process and the function scripts
 # in the 'private' and 'public' subfolders will be inserted in its place.

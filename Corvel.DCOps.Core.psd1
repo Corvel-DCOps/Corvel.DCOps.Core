@@ -52,7 +52,7 @@ Description = 'Core functions used by Corvel.DCOps Modules'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.1.0'}
+    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.2.0'}
 )
 
 # Assemblies that must be loaded prior to importing this module
@@ -72,7 +72,7 @@ NestedModules = @('Corvel.DCOps.LocalSettings.psm1',
                'Corvel.DCOps.JsonData.psm1',
                'Corvel.DCOps.SharedSettings.psm1',
                'Corvel.DCOps.Credentials.psm1',
-               'Corvel.DCOps.Hosts.psm1'
+               'Corvel.DCOps.Servers.psm1'
                 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.

@@ -17,8 +17,8 @@ function Import-DCOpsServerFile {
    foreach ($Server in $Servers) {
       $Params = @{
          ServerType = $Server.ServerType
-         DisplayName = $Server.DisplayName
          HostName = $Server.HostName
+         DisplayName = $Server.DisplayName
          Environment = $Server.Environment
          Location = $Server.Location
       }
@@ -27,7 +27,7 @@ function Import-DCOpsServerFile {
       if ($Custom.Count -gt 0) { $Params['Custom'] = $Custom }
       try {
          $DCOpsServer = New-DCopsServerObject @Params
-         $DCOpsServers += $DCOpsServer
+         $DCOpsServers.Add($DCOpsServer) | Out-Null
       } catch {
          Write-Warning "Invalid host object in data file: $($Server.DisplayName)"
       }
