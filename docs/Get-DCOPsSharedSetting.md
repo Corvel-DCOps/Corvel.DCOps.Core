@@ -13,7 +13,8 @@ Retrieve the specified shared setting from the DCOps Host.
 ## SYNTAX
 
 ```
-Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String>] [-DCOpsHost <String>] [<CommonParameters>]
+Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String[]>] [-DCOpsHost <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -62,7 +63,7 @@ Accept wildcard characters: False
 The value to return if the Key is not found in the shared settings on the DCOps Host.
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
@@ -101,6 +102,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Collections.Hashtable
 
 ### System.String
+
+### System.String[]
 
 ## NOTES
 

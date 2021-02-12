@@ -13,7 +13,7 @@ Prompts the user for the DCOps Master Key and stores it locally.
 ## SYNTAX
 
 ```
-Set-DCOpsMasterKey [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsMasterKey [-Key] <String> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,6 +46,21 @@ Aliases:
 
 Required: False
 Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Key
+{{ Fill Key Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
