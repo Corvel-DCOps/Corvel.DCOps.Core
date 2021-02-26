@@ -125,4 +125,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Online Version](https://github.com/Corvel-DCOps/Corvel.DCOps.Core/blob/main/Source/docs/Set-DCOpsSharedSetting.md)
 [Get-DCOpsSharedSetting]()
-[about_DCOpsHost]
+[about_DCOpsHost]()
