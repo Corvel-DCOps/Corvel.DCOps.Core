@@ -45,7 +45,7 @@ function Get-DCOpsCredential {
        }
     }
     if ($WhereArray.Count -eq 0) {
-       return ,$CredentialStore.AsReadOnly()
+       return $CredentialStore.AsReadOnly()
     }
 
     $WhereString = $WhereArray -join ' -and '
@@ -54,6 +54,6 @@ function Get-DCOpsCredential {
 
     $SearchResults = $CredentialStore | Where-Object -FilterScript $WhereBlock
     if ($SearchResults) {
-      return ,$SearchResults       
+      return $SearchResults       
     }
  }

@@ -62,7 +62,7 @@ function Get-DCOpsServer {
    }
 
    if ($WhereArray.Count -eq 0) {
-      return ,$DCOpsServers.AsReadOnly()
+      return $DCOpsServers.AsReadOnly()
    }
 
    $WhereString = $WhereArray -join ' -and '
@@ -71,6 +71,6 @@ function Get-DCOpsServer {
 
    $SearchResults = $DCOpsServers | Where-Object -FilterScript $WhereBlock
    if ($SearchResults) {
-     return ,$SearchResults       
+     return $SearchResults       
    }
 }
