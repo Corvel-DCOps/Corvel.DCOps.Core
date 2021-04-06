@@ -10,13 +10,11 @@ function Get-DCOpsCredential {
        [string]$UserName,
        [ValidateNotNullOrEmpty()]
        [SupportsWildcards()]
-       [string]$Description,
-       [ValidateNotNullOrEmpty()]
-       [string]$DCOpsHost = (Get-DCOpsLocalSetting 'dcopshost')
+       [string]$Description
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     
-    $CredentialStore = Import-DCOpsCredentialFile -DCOpsHost $DCOpsHost
+    $CredentialStore = Import-DCOpsCredentialFile
     if ($null -eq $CredentialStore) {
        throw 'Unable to load credential file.'
        return
