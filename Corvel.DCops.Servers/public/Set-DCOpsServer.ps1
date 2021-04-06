@@ -20,13 +20,11 @@ function Set-DCOpsServer {
       [Parameter(ParameterSetName='Details')]
       [System.Collections.Generic.List[string]]$IPAddress = @(),
       [Parameter(ParameterSetName='Details')]
-      [hashtable]$Custom = @{},
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
+      [hashtable]$Custom = @{}
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 
-   $DCOpsServers = Import-DCOpsServerFile -DCOpsHost $DCOpsHost
+   $DCOpsServers = Import-DCOpsServerFile
    
    if (-not ($PSBoundParameters.ContainsKey('DCOpsServer'))) {
       $Params = @{

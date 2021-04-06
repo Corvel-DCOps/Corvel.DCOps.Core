@@ -2,14 +2,12 @@ function Import-DCOpsServerFile {
    [CmdletBinding()]
    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
    param (
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 
    $DCOpsServers = [System.Collections.Generic.List[PSCustomObject]]@()
 
-   $Servers = Get-DCOpsJsonDataFile -Name 'servers' -DCOpsHost $DCOpsHost
+   $Servers = Get-DCOpsJsonDataFile -Name 'servers'
    if ($null -eq $Servers) {
       throw 'Unable to load servers file.'
       return

@@ -16,9 +16,7 @@ function Get-DCOpsServer {
       [string]$Environment,
       [ValidateNotNullOrEmpty()]
       [SupportsWildcards()]
-      [string]$Location,
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
+      [string]$Location
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 
