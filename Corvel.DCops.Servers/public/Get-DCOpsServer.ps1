@@ -20,7 +20,7 @@ function Get-DCOpsServer {
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 
-   $DCOpsServers = Import-DCOpsServerFile -DCOpsHost $DCOpsHost
+   $DCOpsServers = Import-DCOpsServerFile
    
    $WhereArray = @()
    if ($PSBoundParameters.ContainsKey('ServerType')) {

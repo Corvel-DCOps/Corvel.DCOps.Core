@@ -50,7 +50,7 @@ function Set-DCOpsServer {
    }
    if ($PSCmdlet.ShouldProcess($DCOpsServer.DisplayName, "Updating servers")) {
       $DCOpsServers.Add($DCOpsServer) | Out-Null
-      Set-DCOpsJsonDataFile -Name 'servers' -InputObject $DCOpsServers -DCOpsHost $DCOpsHost
+      Set-DCOpsJsonDataFile -Name 'servers' -InputObject $DCOpsServers
    }
    return $DCOpsServer
 }
