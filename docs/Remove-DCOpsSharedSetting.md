@@ -13,7 +13,7 @@ Removes a shared setting from the DCOps Host.
 ## SYNTAX
 
 ```
-Remove-DCOpsSharedSetting [-Key] <String> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-DCOpsSharedSetting [-Key] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,18 +30,17 @@ Removes the shared setting 'sharedkey' from the DCOps Host.
 
 ## PARAMETERS
 
-### -DCOpsHost
-The DCOps Server to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: cf
 
 Required: False
-Position: 1
-Default value: The 'dcopshost' local setting.
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -56,21 +55,6 @@ Aliases: Name
 
 Required: True
 Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

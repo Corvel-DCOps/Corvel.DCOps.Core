@@ -13,8 +13,7 @@ Updates or creates a shared setting on the DCOps Host.
 ## SYNTAX
 
 ```
-Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-DCOpsSharedSetting [-Key] <String> [-Value] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,18 +30,17 @@ Creates a new shared setting (if 'sharedsetting' doesn't exist) or updates an ex
 
 ## PARAMETERS
 
-### -DCOpsHost
-The DCOps Host to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: cf
 
 Required: False
-Position: 2
-Default value: The 'dcopshost' local setting.
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -72,21 +70,6 @@ Aliases:
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

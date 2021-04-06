@@ -14,7 +14,7 @@ Retrieves shared credentials from the DCOps Host.
 
 ```
 Get-DCOpsCredential [[-HostName] <String>] [[-UserName] <String>] [[-Description] <String>]
- [[-DCOpsHost] <String>] [<CommonParameters>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,22 +35,6 @@ Retrieves all credentials where the HostName begins with 'hbdcdcops'.
 
 ## PARAMETERS
 
-### -DCOpsHost
-The DCOps Host to retrieve the credentials from. 
-The default is retrieved from the 'dcopshost' local setting.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: The 'dcopshost' local setting
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Description
 Specifies the description of the credential you wish to retrieve.
 
@@ -63,7 +47,7 @@ Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HostName
@@ -78,7 +62,7 @@ Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -UserName
@@ -93,7 +77,7 @@ Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters

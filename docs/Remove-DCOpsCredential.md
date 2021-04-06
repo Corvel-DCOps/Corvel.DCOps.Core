@@ -14,14 +14,12 @@ Remove a credential from the shared credentials on the DCOps Host.
 
 ### Search
 ```
-Remove-DCOpsCredential -HostName <String> -UserName <String> [-DCOpsHost <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Remove-DCOpsCredential -HostName <String> -UserName <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DCOpCredential
 ```
-Remove-DCOpsCredential -DCOpsCredential <Object> [-DCOpsHost <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Remove-DCOpsCredential -DCOpsCredential <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -48,6 +46,21 @@ First retrieves the credential matching a host name of 'server.domain.com' and a
 
 ## PARAMETERS
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DCOpsCredential
 A DCOpsCredential object (retrieved with Get-DCOpsCredential) to remove from the shared credential store.
 
@@ -59,22 +72,6 @@ Aliases:
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DCOpsHost
-The DCOps Host to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -103,21 +100,6 @@ Parameter Sets: Search
 Aliases:
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False

@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 Get-DCOpsServer [[-ServerType] <String>] [[-HostName] <String>] [[-DisplayName] <String>]
- [[-Environment] <String>] [[-Location] <String>] [[-DCOpsHost] <String>] [<CommonParameters>]
+ [[-Environment] <String>] [[-Location] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,21 +31,6 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -DCOpsHost
-{{ Fill DCOpsHost Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -DisplayName
 {{ Fill DisplayName Description }}
 
@@ -58,7 +43,7 @@ Required: False
 Position: 2
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Environment
@@ -73,7 +58,7 @@ Required: False
 Position: 3
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -HostName
@@ -88,7 +73,7 @@ Required: False
 Position: 1
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Location
@@ -103,7 +88,7 @@ Required: False
 Position: 4
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ServerType
@@ -118,7 +103,7 @@ Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### CommonParameters

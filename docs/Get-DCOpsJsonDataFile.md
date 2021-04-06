@@ -13,7 +13,7 @@ Retrieves a Json data file from the DCOps Host.
 ## SYNTAX
 
 ```
-Get-DCOpsJsonDataFile [-Name] <String> [-ForceRefresh] [[-DCOpsHost] <String>] [-AsJson] [<CommonParameters>]
+Get-DCOpsJsonDataFile [-Name] <String> [-ForceRefresh] [-AsJson] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,22 +54,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DCOpsHost
-The DCOps Host to retrieve the Json data file from. 
-The default is retrieved from the 'dcopshost' local setting.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: The 'dcopshost' local setting
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

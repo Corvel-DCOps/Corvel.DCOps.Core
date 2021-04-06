@@ -13,8 +13,7 @@ Retrieve the specified shared setting from the DCOps Host.
 ## SYNTAX
 
 ```
-Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String[]>] [-DCOpsHost <String>]
- [<CommonParameters>]
+Get-DCOPsSharedSetting [[-Key] <String>] [[-DefaultValue] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -42,22 +41,6 @@ defaultvalue
 Attempts to retrieve the shared setting 'nokeyfound' from the DCOps Server and returns 'defaultvalue' if it is not found.
 
 ## PARAMETERS
-
-### -DCOpsHost
-The DCOps Host to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: The 'dcopshost' local setting
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -DefaultValue
 The value to return if the Key is not found in the shared settings on the DCOps Host.

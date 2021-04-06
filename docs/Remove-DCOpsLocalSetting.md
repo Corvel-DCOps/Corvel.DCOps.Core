@@ -30,21 +30,6 @@ Removes the local setting 'somekey' from the local settings file.
 
 ## PARAMETERS
 
-### -Key
-Name of the local setting to remove.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name
-
-Required: True
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Confirm
 Prompts you for confirmation before running the cmdlet.
 
@@ -55,6 +40,21 @@ Aliases: cf
 
 Required: False
 Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Key
+Name of the local setting to remove.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases: Name
+
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

@@ -14,25 +14,25 @@ Creates a new shared credential or updates an existing shared credential on the 
 
 ### Password (Default)
 ```
-Set-DCOpsCredential -HostName <String> -UserName <String> [-Description <String>] -Password <String>
- [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsCredential -HostName <String> -UserName <String> [-Description <String>] -Password <String> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### PSCredential
 ```
-Set-DCOpsCredential -HostName <String> [-Description <String>] -PSCredential <PSCredential>
- [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsCredential -HostName <String> [-Description <String>] -PSCredential <PSCredential> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### SecureString
 ```
 Set-DCOpsCredential -HostName <String> -UserName <String> [-Description <String>] -SecureString <SecureString>
- [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DCOpsCredential
 ```
-Set-DCOpsCredential -DCOpsCredential <Object> [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsCredential -DCOpsCredential <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,6 +54,21 @@ Creates or updates the shared credential represented by the host name 'server.do
 
 ## PARAMETERS
 
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DCOpsCredential
 A DCOpsCredential object previously obtain by calling Get-DCOpsCredential and (possibly) modified. 
 Note that if the intention is to change the host name and/or user name of an existing credential, you must 
@@ -67,22 +82,6 @@ Aliases:
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DCOpsHost
-The DCOps Host to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: The 'dcopshost' local setting.
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -118,12 +117,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Password
-The password (in plain text) of the shared credential to create or update. This will be encrypted using the DCOpsMaster Key.
+### -PSCredential
+A PSCrednetial object that contains the user name and password of the shared credential to create or update.
 
 ```yaml
-Type: String
-Parameter Sets: Password
+Type: PSCredential
+Parameter Sets: PSCredential
 Aliases:
 
 Required: True
@@ -133,12 +132,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PSCredential
-A PSCrednetial object that contains the user name and password of the shared credential to create or update.
+### -Password
+The password (in plain text) of the shared credential to create or update. This will be encrypted using the DCOpsMaster Key.
 
 ```yaml
-Type: PSCredential
-Parameter Sets: PSCredential
+Type: String
+Parameter Sets: Password
 Aliases:
 
 Required: True
@@ -173,21 +172,6 @@ Parameter Sets: Password, SecureString
 Aliases:
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False

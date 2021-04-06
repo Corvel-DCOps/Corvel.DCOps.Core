@@ -14,14 +14,14 @@ schema: 2.0.0
 
 ### Object
 ```
-Set-DCOpsServer -DCOpsServer <Object> [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-DCOpsServer -DCOpsServer <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Details
 ```
 Set-DCOpsServer -ServerType <String> -HostName <String> -DisplayName <String> -Environment <String>
  -Location <String> [-IPAddress <System.Collections.Generic.List`1[System.String]>] [-Custom <Hashtable>]
- [-DCOpsHost <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -38,13 +38,13 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -Custom
-{{ Fill Custom Description }}
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: Hashtable
-Parameter Sets: Details
-Aliases:
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
 
 Required: False
 Position: Named
@@ -53,12 +53,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DCOpsHost
-{{ Fill DCOpsHost Description }}
+### -Custom
+{{ Fill Custom Description }}
 
 ```yaml
-Type: String
-Parameter Sets: (All)
+Type: Hashtable
+Parameter Sets: Details
 Aliases:
 
 Required: False
@@ -167,21 +167,6 @@ Parameter Sets: Details
 Aliases:
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False

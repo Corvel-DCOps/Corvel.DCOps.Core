@@ -13,8 +13,7 @@ Updates a Json Data file on the DCOps Host.
 ## SYNTAX
 
 ```
-Set-DCOpsJsonDataFile [-Name] <String> [-InputObject] <Object[]> [[-DCOpsHost] <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-DCOpsJsonDataFile [-Name] <String> [-InputObject] <Object[]> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -34,18 +33,17 @@ Creates or updates a data file called 'jsondatafile.json' with the Json represen
 
 ## PARAMETERS
 
-### -DCOpsHost
-The DCOps Host to retrieve the shared settings from. 
-The default is retrieved from the 'dcopshost' local setting.
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: cf
 
 Required: False
-Position: 2
-Default value: The 'dcopshost' local setting.
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -77,21 +75,6 @@ Aliases:
 
 Required: True
 Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
