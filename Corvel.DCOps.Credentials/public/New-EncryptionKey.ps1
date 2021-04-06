@@ -7,7 +7,18 @@ function New-EncryptionKey {
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    $Length = $KeySize / 8
-   $NewKey = [System.Web.Security.Membership]::GeneratePassword($Length, 0)
+
+   $Symbols = '!@#$%^&*'.ToCharArray()
+   $CharacterList = 'a'..'z' + 'A'..'Z' + '0'..'9' + $Symbols
+
+   do {
+      $NewKey = -join (0..$Length | ForEach-Object { $CharacterList | Get-Random })
+      [int]$HasLowerChar = $NewKey -cmatch '[a-z]'
+      [int]$HasUpperChar = $NewKey -cmatch '[A-Z]'
+      [int]$HasDigit = $NewKey -match '[0-9]'
+      [int]$HasSymbol = $NewKey.IndexOfAny($Symbols) -ne -1
+   } until (($HasLowerChar + $HasUpperChar + $HasDigit + $HasSymbol) -ge 4)
+   
    if ($AsSecureString) {
       return $NewKey | ConvertTo-SecureString -AsPlainText -Force
    } else {
