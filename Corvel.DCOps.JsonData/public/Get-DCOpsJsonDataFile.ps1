@@ -6,8 +6,6 @@ function Get-DCOpsJsonDataFile {
       [ValidateNotNullOrEmpty()]
       [string]$Name,
       [switch]$ForceRefresh,
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost'),
       [switch]$AsJson
 
    )
@@ -15,7 +13,8 @@ function Get-DCOpsJsonDataFile {
    $Caller = (Get-PSCallStack)[1].Command
    $MaxJsonDataCacheAge = [int](Get-DCOpsLocalSetting -Name 'maxjsondatacacheage')
    $FileName = [System.IO.Path]::GetFileNameWithoutExtension($Name)
-   
+   $DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
+      
    if (-not (Get-DCOpsJsonDataFileAccess -Name $FileName -Caller $Caller -Access Read)) {
       throw "Permission denied to Json Data file $FileName"
       return

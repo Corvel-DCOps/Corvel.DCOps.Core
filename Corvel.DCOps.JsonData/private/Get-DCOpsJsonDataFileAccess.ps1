@@ -9,12 +9,10 @@ function Get-DCOpsJsonDataFileAccess {
       [ValidateNotNullOrEmpty()]
       [string]$Caller,
       [ValidateSet('Read', 'Write')]
-      [string]$Access = 'Read',
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
+      [string]$Access = 'Read'
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
-   
+   $DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
    $SavedProgressPreference = $ProgressPreference
    $ProgressPreference = 'SilentlyContinue'
 

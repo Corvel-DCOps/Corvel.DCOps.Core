@@ -5,5 +5,5 @@ function Get-DCOpsJsonDataCache {
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     if (-not $script:DCOpsJsonDataCache) { return }
     $CacheCopy = Copy-DCOpsDataCache
-    return ,$CacheCopy
+    return $CacheCopy
  }
