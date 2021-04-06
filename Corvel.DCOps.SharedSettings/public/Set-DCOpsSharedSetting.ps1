@@ -8,12 +8,10 @@ function Set-DCOpsSharedSetting {
       [string]$Key,
       [Parameter(Mandatory=$true)]
       [ValidateNotNullOrEmpty()]
-      [string[]]$Value,
-      [ValidateNotNullOrEmpty()]
-      [string]$DCOpsHost = (Get-DCOpsLocalSetting -Name 'dcopshost')
+      [string[]]$Value
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
-   if (-not ($SharedSettingsHash = Import-DCOpsSharedSettings -DCOpsHost $DCOpsHost)) {
+   if (-not ($SharedSettingsHash = Import-DCOpsSharedSettings)) {
       throw 'Unabled to get Shared Settings'
       return
    }
@@ -23,7 +21,7 @@ function Set-DCOpsSharedSetting {
    $SharedSettingsHash[$Key] = $Value
    }
    if ($PSCmdlet.ShouldProcess('SharedSettings', 'Saving changes')) {
-      Set-DCOpsJsonDataFile -Name 'sharedsettings' -DataObject $SharedSettingsHash -DCOpsHost $DCOpsHost
+      Set-DCOpsJsonDataFile -Name 'sharedsettings' -DataObject $SharedSettingsHash
    }
 
 }

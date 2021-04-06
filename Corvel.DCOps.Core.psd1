@@ -52,7 +52,7 @@ Description = 'Core functions used by Corvel.DCOps Modules'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.2.0'}
+    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.3.0'}
 )
 
 # Assemblies that must be loaded prior to importing this module
