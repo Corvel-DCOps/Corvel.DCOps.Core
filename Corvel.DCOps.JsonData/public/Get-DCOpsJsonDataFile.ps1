@@ -41,7 +41,7 @@ function Get-DCOpsJsonDataFile {
    }
 
    try {
-      $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -ErrorAction SilentlyContinue
+      $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -SkipCertificateCheck -ErrorAction SilentlyContinue
       $StatusCode = $WebResponse.StatusCode
    } catch {
       $StatusCode = $_.Exception.Response.StatusCode.value__

@@ -22,7 +22,7 @@ function Get-DCOpsJsonDataFileAccess {
    }
 
    try {
-      $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -ErrorAction SilentlyContinue
+      $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -SkipCertificateCheck -ErrorAction SilentlyContinue
    } catch {
       return $null
    } finally {
