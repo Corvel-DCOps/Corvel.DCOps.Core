@@ -30,7 +30,7 @@ function Get-DCOpsLocalSetting {
           return $LocalSettingsHash[$Key]
        } else {
           # If a default was supplied or we have one, return it
-          if ($PSBoundParameters.ContainsKey($DefaultValue)) {
+          if ($PSBoundParameters.ContainsKey('DefaultValue')) {
              return $DefaultValue
           } elseif ($script:DefaultValues.ContainsKey($Key)) {
              return $script:DefaultValues[$Key]

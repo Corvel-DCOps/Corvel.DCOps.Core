@@ -15,7 +15,7 @@
 ModuleVersion = '1.0.0'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = @('Core')
 
 # ID used to uniquely identify this module
 GUID = 'db67bdb7-3cf7-4a47-a58c-bf943376632d'
@@ -33,7 +33,7 @@ Copyright = '(c) 2020 Scott Horn. All rights reserved.'
 Description = 'Core functions used by Corvel.DCOps Modules'
 
 # Minimum version of the Windows PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '7.0'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -52,7 +52,7 @@ Description = 'Core functions used by Corvel.DCOps Modules'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.3.0'}
+    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.3.1'}
 )
 
 # Assemblies that must be loaded prior to importing this module
@@ -68,12 +68,14 @@ RequiredModules = @(
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @('Corvel.DCOps.LocalSettings.psm1',
-               'Corvel.DCOps.JsonData.psm1',
-               'Corvel.DCOps.SharedSettings.psm1',
-               'Corvel.DCOps.Credentials.psm1',
-               'Corvel.DCOps.Servers.psm1'
-                )
+NestedModules = @(
+    'Corvel.DCOps.Aliases.psm1',
+    'Corvel.DCOps.Credentials.psm1',
+    'Corvel.DCOps.JsonData.psm1',
+    'Corvel.DCOps.LocalSettings.psm1',
+    'Corvel.DCOps.Servers.psm1',
+    'Corvel.DCOps.SharedSettings.psm1'    
+)
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 # FunctionsToExport = @()
