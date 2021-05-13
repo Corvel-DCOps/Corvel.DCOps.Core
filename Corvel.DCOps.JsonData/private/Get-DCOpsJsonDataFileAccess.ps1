@@ -21,8 +21,21 @@ function Get-DCOpsJsonDataFileAccess {
       'Accept' = 'application/json'
    }
 
+   $Params = @{
+      Uri = $Uri
+      Headers = $Headers
+      Method = 'Get'
+      Verbose = $false
+      UseBasicParsing = $true
+      ErrorAction = 'SilentlyContinue'
+   }
+   if ($PSEdition -eq 'Core') {
+      $Params['SkipCertificateCheck'] = $true
+   } else {
+      Disable-SslCertificateValidation
+   }
    try {
-      $WebResponse = Invoke-WebRequest -Uri $Uri -Headers $Headers -Method Get -Verbose:$false -UseBasicParsing -SkipCertificateCheck -ErrorAction SilentlyContinue
+      $WebResponse = Invoke-WebRequest @Params
    } catch {
       return $null
    } finally {

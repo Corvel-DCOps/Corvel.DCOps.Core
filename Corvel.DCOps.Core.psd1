@@ -15,7 +15,7 @@
 ModuleVersion = '1.0.0'
 
 # Supported PSEditions
-CompatiblePSEditions = @('Core')
+# CompatiblePSEditions = @('Core')
 
 # ID used to uniquely identify this module
 GUID = 'db67bdb7-3cf7-4a47-a58c-bf943376632d'
@@ -33,7 +33,7 @@ Copyright = '(c) 2020 Scott Horn. All rights reserved.'
 Description = 'Core functions used by Corvel.DCOps Modules'
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '7.0'
+PowerShellVersion = '5.1'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
