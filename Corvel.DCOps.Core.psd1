@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '2.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @('Core')
@@ -51,9 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(
-    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.3.1'}
-)
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -73,6 +71,7 @@ NestedModules = @(
     'Corvel.DCOps.Credentials.psm1',
     'Corvel.DCOps.JsonData.psm1',
     'Corvel.DCOps.LocalSettings.psm1',
+    'Corvel.DCOps.PSUtility.psm1',
     'Corvel.DCOps.Servers.psm1',
     'Corvel.DCOps.SharedSettings.psm1'    
 )
