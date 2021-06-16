@@ -5,7 +5,11 @@ $script:DefaultValues = @{
     dcopdbserver = 'hbdcdcops02'
     maxjsondatacacheage = '900'
  }
- $script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
+ if ($IsLinux) {
+     $script:LocalSettingsFile = "$env:HOME/Corvel.DCOps/localsettings.json"
+ } else {
+    $script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
+ }
 
 #region REMOVE_CODE
 # Code in this region will be removed during the build process and the function scripts
