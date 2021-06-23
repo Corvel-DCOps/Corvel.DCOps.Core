@@ -41,7 +41,7 @@ function Write-DCOpsVRLIEvent {
    $EventFields = $Fields.GetEnumerator() | ForEach-Object {[ordered]@{'name' = "$($_.Key)"; 'content' = "$($_.Value)"}}
    $EventRecord = @{text = "$Message"; fields = $EventFields}
 
-   $ClientId = (Get-Module Corvel.DCOps.Logging).Guid.ToString()
+   $ClientId = (Get-Module Corvel.DCOps.Core).Guid.ToString()
    $URI = "https://$($Server):$($Port)/api/v1/events/ingest/$ClientId"
    $EventJson = @{events = @($EventRecord)} | ConvertTo-Json -Depth 4
    $Params = @{
