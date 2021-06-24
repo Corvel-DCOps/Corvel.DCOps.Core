@@ -69,6 +69,7 @@ PowerShellVersion = '5.1'
 NestedModules = @(
     'Corvel.DCOps.Aliases.psm1',
     'Corvel.DCOps.Apps.psm1',
+    'Corvel.DCOps.Core.psm1',
     'Corvel.DCOps.Credentials.psm1',
     'Corvel.DCOps.JsonData.psm1',
     'Corvel.DCOps.LocalSettings.psm1',
