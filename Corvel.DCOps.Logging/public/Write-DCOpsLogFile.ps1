@@ -5,7 +5,7 @@ function Write-DCOpsLogFile {
 		[ValidateNotNullOrEmpty()]
 		[string]$Message,		
 		[ValidateNotNullOrEmpty()]
-		[System.Guid]$CorrelationID = (Get-Module Corvel.DCOPs.Logging).Guid,
+		[System.Guid]$CorrelationID = (Get-Module Corvel.DCOPs.Core).Guid,
 		[ValidateNotNullOrEmpty()]
 		[string]$ExecutionHost = $env:COMPUTERNAME,
 		[ValidateNotNullOrEmpty()]
