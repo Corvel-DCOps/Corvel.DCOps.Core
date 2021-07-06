@@ -31,7 +31,13 @@ function Get-DCOpsRemoteSession {
 			return
 		}
 	}
-
+	if ($DCOpsSession.State -eq 'Disconnected') {
+		$DCOpsSession = Connect-PSSession -ComputerName $ComputerName -Credential $Credential -ErrorAction SilentlyContinue
+		if (-not $DCOpsSession) {
+			Write-DCOpsMessage "Unable to create session to '$Computername'" -LogLevel WARNING -CorrelationID $CorrelationID
+			return
+		}
+	}
 	Write-DCOpsMessage -Message 'Execution Finished' -LogLevel VERBOSE -CorrelationID $CorrelationID
 	return $DCOpsSession
 
