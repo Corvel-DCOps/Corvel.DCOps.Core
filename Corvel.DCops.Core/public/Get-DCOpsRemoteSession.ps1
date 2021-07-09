@@ -14,8 +14,8 @@ function Get-DCOpsRemoteSession {
 	Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 	Write-DCOpsMessage -Message 'Execution Started' -LogLevel VERBOSE -CorrelationID $CorrelationID
 
-	if (-not $PSBoundParameters.ContainsKey('RemoteAccount')) {
-		$RemoteCredential = Get-DCOpsCredential -Host $RemoteComputer -UserName $AccountName -AsPSCredential
+	if ($PSBoundParameters.ContainsKey('RemoteAccount')) {
+		$RemoteCredential = Get-DCOpsCredential -Host $RemoteComputer -UserName $RemoteAccount -AsPSCredential
 		if (-not $DCOpsCredential) {
 			Write-DCOpsMessage -Message "Credential '$RemoteAccount' not found." -LogLevel WARNING -CorrelationID $CorrelationID
 			return
