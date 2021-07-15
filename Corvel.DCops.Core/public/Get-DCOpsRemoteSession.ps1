@@ -1,27 +1,16 @@
 function Get-DCOpsRemoteSession {
-	[CmdletBinding(DefaultParameterSetName='Account')]
+	[CmdletBinding()]
 	[OutputType([System.Management.Automation.Runspaces.PSSession])]
 	param (
 		[ValidateNotNullOrEmpty()]
 		[string]$Computer = (Get-DCOpsSharedSetting -Key 'scriptingserver'),
-		[Parameter(ParameterSetName='Credential', Mandatory = $true)]
-		[pscredential]$Credential,
-		[Parameter(ParameterSetName='Account')]
 		[ValidateNotNullOrEmpty()]
-		[string]$Account = (Get-DCOpsSharedSetting -Key 'scriptingaccount'),
+		[pscredential]$Credential = (Get-DCOpsCredential -Host $Computer -UserName (Get-DCOpsSharedSetting -Key 'scriptingaccount') -AsPSCredential),
 		[guid]$CorrelationID = (New-Guid)
 	)
 	Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 	Write-DCOpsMessage -Message 'Execution Started' -LogLevel VERBOSE -CorrelationID $CorrelationID
 	
-	if ( $PSCmdlet.ParameterSetName -eq 'Account' ) {
-		$Credential = Get-DCOpsCredential -Host $Computer -UserName $Account -AsPSCredential
-		if (-not $DCOpsCredential) {
-			Write-DCOpsMessage -Message "Credential '$Account' not found." -LogLevel WARNING -CorrelationID $CorrelationID
-			return
-		}
-	}
-
 	$DCOpsSession = Get-PSSession -ComputerName $Computer -Credential $Credential -ErrorAction SilentlyContinue
 	if (-not $DCOpsSession) {
 		$DCOpsSession = New-PSSession -ComputerName $Computer -Credential $Credential -ErrorAction SilentlyContinue

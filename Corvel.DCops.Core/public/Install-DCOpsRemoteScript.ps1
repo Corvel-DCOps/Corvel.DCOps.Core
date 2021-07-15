@@ -8,7 +8,7 @@ function Install-DCOpsRemoteScript {
 		[string]$Computer = (Get-DCOPsSharedSetting -Key 'scriptingserver'),
 		[Parameter(ParameterSetName = 'Computer')]
 		[ValidateNotNullOrEmpty()]
-		[PSCredential]$Credential = (Get-DCOpsCredential -Host $Computer -AsPSCredential ),
+		[PSCredential]$Credential = (Get-DCOpsCredential -Host $Computer -UserName (Get-DCOpsSharedSetting -Key 'scriptingaccount') -AsPSCredential ),
 		[Parameter(Mandatory = $true)]
 		[string]$Name,
 		[Parameter(Mandatory = $true)]
