@@ -27,26 +27,26 @@ function Install-DCOpsRemoteScript {
 		}
 	}
 
-	$Params = {
+	$Params = @{
 		Session = $Session
-		Name = $Name
+		Name = $Name		
 		CorrelationID = $CorrelationID
 	}
 	$InstalledScript = Get-DCOpsRemoteScript @Params 
 	if ( -not $InstalledScript ) {
 		$Params = @{ 
 			Name = $Name 
-			RequiredVersion = $Version.ToString()
+			RequiredVersion = $RequiredVersion.ToString()
 			Scope = 'AllUsers'
 			PassThru = $true
 			Repository = $Repository
 		}
 		$InstalledScript = Invoke-Command -Session $Session -ScriptBlock { Install-Script @using:Params }
 	} else {
-		if ($Version.CompareTo([System.Version]$InstalledScript.Version) -gt 0 ) {
+		if ($RequiredVersion.CompareTo([System.Version]$InstalledScript.Version) -gt 0 ) {
 			$Params = @{ 
 				Name = $Name 
-				RequiredVersion = $Version.ToString()
+				RequiredVersion = $RequiredVersion.ToString()
 				PassThru = $true
 			}
 			$InstalledScript = Invoke-Command -Session $Session -ScriptBlock { Update-Script @using:Params }

@@ -11,7 +11,7 @@ function Get-DCOpsRemoteScript {
 		[PSCredential]$Credential = (Get-DCOpsCredential -Host $Computer -UserName (Get-DCOpsSharedSetting -Key 'scriptingaccount') -AsPSCredential ),
 		[Parameter(Mandatory = $true)]
 		[string]$Name,
-		[Parameter(Mandatory = $true)]
+		[ValidateNotNullOrEmpty()]
 		[System.Version]$RequiredVersion,
 		[guid]$CorrelationID = (New-Guid)
 	)
@@ -26,7 +26,9 @@ function Get-DCOpsRemoteScript {
 	}
 	$Params = @{ 
 		Name = $Name
-		Version = $RequiredVersion.ToString()
+	}
+	if ($PSBoundParameters.ContainsKey('RequiredVersion')) {
+		$Params['RequiredVersion'] = $RequiredVersion.ToString()
 	}
 	$InstalledScript = Invoke-Command -Session $Session -ScriptBlock { Get-InstalledScript @using:Params }
 
