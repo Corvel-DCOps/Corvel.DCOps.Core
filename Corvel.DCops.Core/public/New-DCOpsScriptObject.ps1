@@ -2,29 +2,29 @@ function New-DCOpsScriptObject {
 	[CmdletBinding(DefaultParameterSetName = 'Details')]
 	param (
 		[Parameter(ParameterSetName='Details', Position = 0)]
-		[string]$ScriptName = $null,
+		[string]$Name = $null,
 		[Parameter(ParameterSetName='Details', Position = 1)]
-		[System.Version]$ScriptVersion = $null,
+		[System.Version]$Version = $null,
 		[Parameter(ParameterSetName='ScriptInfo')]
 		[hashtable]$ScriptInfo
 	)
 	if ($PSBoundParameters.ContainsKey('ScriptInfo')) {
 		$NewObject = [PSCustomObject][ordered]@{PSTypeName = 'DCOpsScript'
-			ScriptName = $ScriptInfo['ScriptName']
-			ScriptVersion = [System.Version]$ScriptInfo['ScriptVersion']
+			Name = $ScriptInfo['Name']
+			Version = [System.Version]$ScriptInfo['Version']
 		}	
 	} else {
 		$NewObject = [PSCustomObject][ordered]@{PSTypeName = 'DCOpsScript'
-			ScriptName = $ScriptName
-			ScriptVersion = $ScriptVersion
+			Name = $Name
+			Version = $Version
 		}
 	}
 	$NewObject | Add-Member -Name 'ToHashTable' -MemberType ScriptMethod -Value {
-		return @{ScriptName = $this.ScriptName; ScriptVersion = [string]$this.ScriptVersion}
+		return @{Name = $this.Name; Version = [string]$this.Version}
 	}
 
-	$NewObject | Add-Member -Name 'AsString' -MemberType ScriptProperty -Value {
-		"$($this.ScriptName) v$($this.ScriptVersion.ToString())"
+	$NewObject | Add-Member -Name 'ToString' -MemberType ScriptMethod -Force -Value {
+		"$($this.Name) v$($this.Version.ToString())"
 	}
 	return $NewObject
 }
