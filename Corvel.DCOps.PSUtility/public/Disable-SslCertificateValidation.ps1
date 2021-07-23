@@ -2,7 +2,7 @@ function Disable-SslCertificateValidation {
    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingEmptyCatchBlock', '', Scope = 'Function', Target = '*')]
    [CmdletBinding()]
    param ()
-   if ($PSVersionTable.PSEdition -eq 'Desktop') {
+   if (-not $PSEdition -or $PSEdition -eq 'Desktop') {
       $TypeDefinition = @'
 	using System.Net;
 	using System.Security.Cryptography.X509Certificates;
