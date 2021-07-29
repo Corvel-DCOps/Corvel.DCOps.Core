@@ -35,7 +35,7 @@ function Connect-VRLIServer {
 	try {
 		$Response = Invoke-RestMethod @Params
 	} catch {
-		Write-DCOpsMessage -Message $_.Message -LogLevel ERROR -CorrelationID $CorrelationID
+		Write-DCOpsMessage -Message $_ -LogLevel ERROR -CorrelationID $CorrelationID
 	}
 
 	Write-DCOpsMessage -Message 'Execution Finished' -LogLevel VERBOSE -CorrelationID $CorrelationID
