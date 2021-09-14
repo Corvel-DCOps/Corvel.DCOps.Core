@@ -25,8 +25,6 @@ function Write-DCOpsVRLIEvent {
 		return
 	}
 
-   Write-DCOpsVerbose -Message "[$CorrelationID] Execution Started"
-
    $Fields = @{}
    $Fields['correlationid'] = $CorrelationID
    $Fields['executionhost'] = $ExecutionHost
@@ -67,5 +65,4 @@ function Write-DCOpsVRLIEvent {
       Write-Error 'Error posting event to Log Insight Server' 
    }
 
-   Write-DCOpsVerbose -Message "[$CorrelationID] Execution Finished"
 }
