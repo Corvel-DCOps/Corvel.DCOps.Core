@@ -57,8 +57,8 @@ function Measure-ObjectPlus {
       #endregion
 
       #region Calculate standard deviation
-      $StandardDeviation = [math]::Sqrt($Stats.Variance)
-      Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'StandardDeviation' -Value $StandardDeviation
+      # $StandardDeviation = [math]::Sqrt($Stats.Variance)
+      # Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'StandardDeviation' -Value $StandardDeviation
       #endregion
 
       #region Calculate percentiles
@@ -66,10 +66,14 @@ function Measure-ObjectPlus {
       $Percentile25Index = [math]::Ceiling(25 / 100 * $Data.Count)
       $Percentile75Index = [math]::Ceiling(75 / 100 * $Data.Count)
       $Percentile90Index = [math]::Ceiling(90 / 100 * $Data.Count)
+      $Percentile95Index = [math]::Ceiling(95 / 100 * $Data.Count)
+      $Percentile99Index = [math]::Ceiling(99 / 100 * $Data.Count)
       Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile10' -Value $Data[$Percentile10Index].$Property
       Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile25' -Value $Data[$Percentile25Index].$Property
       Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile75' -Value $Data[$Percentile75Index].$Property
       Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile90' -Value $Data[$Percentile90Index].$Property
+      Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile95' -Value $Data[$Percentile95Index].$Property
+      Add-Member -InputObject $Stats -MemberType NoteProperty -Name 'Percentile99' -Value $Data[$Percentile99Index].$Property
       #endregion
 
       #region Calculate Tukey's range for outliers
