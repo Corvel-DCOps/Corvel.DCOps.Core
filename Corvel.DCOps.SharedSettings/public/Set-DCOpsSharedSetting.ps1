@@ -8,7 +8,7 @@ function Set-DCOpsSharedSetting {
       [string]$Key,
       [Parameter(Mandatory=$true)]
       [ValidateNotNullOrEmpty()]
-      [string[]]$Value
+      [object[]]$Value
    )
    Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
    if (-not ($SharedSettingsHash = Import-DCOpsSharedSettings)) {

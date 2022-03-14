@@ -1,6 +1,6 @@
 function Get-DCOPsSharedSetting {
     [CmdletBinding()]
-    [OutputType([hashtable], [string], [string[]])]
+    [OutputType([hashtable], [object], [object[]])]
     param (
        [Parameter(Position=0)]
        [ValidateNotNullOrEmpty()]
@@ -8,7 +8,7 @@ function Get-DCOPsSharedSetting {
        [string]$Key,
        [Parameter(Position=1)]
        [ValidateNotNullOrEmpty()]
-       [string[]]$DefaultValue
+       [object[]]$DefaultValue
     )
     Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
     $SharedSettingsHash = Import-DCOpsSharedSettings 

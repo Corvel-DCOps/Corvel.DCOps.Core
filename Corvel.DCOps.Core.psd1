@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '2.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @('Core')
@@ -51,9 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(
-    @{ModuleName = 'VirtuallyGrumpy.PSUtility'; ModuleVersion = '1.3.1'}
-)
+# RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -70,15 +68,20 @@ RequiredModules = @(
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 NestedModules = @(
     'Corvel.DCOps.Aliases.psm1',
+    'Corvel.DCOps.Apps.psm1',
+    'Corvel.DCOps.Core.psm1',
     'Corvel.DCOps.Credentials.psm1',
     'Corvel.DCOps.JsonData.psm1',
     'Corvel.DCOps.LocalSettings.psm1',
+    'Corvel.DCOps.Logging.psm1',
+    'Corvel.DCOps.PSUtility.psm1',
     'Corvel.DCOps.Servers.psm1',
-    'Corvel.DCOps.SharedSettings.psm1'    
+    'Corvel.DCOps.SharedSettings.psm1',
+    'Corvel.DCOps.VRLI.psm1'
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-# FunctionsToExport = @()
+FunctionsToExport = @('*')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -96,7 +99,12 @@ AliasesToExport = @()
 # ModuleList = @()
 
 # List of all files packaged with this module
-# FileList = @()
+FileList = @(
+    'bin\iperf3.exe',
+    'bin\PLINK.EXE',
+    'bin\pscp.exe',
+    'bin\portqry.exe'
+)
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
