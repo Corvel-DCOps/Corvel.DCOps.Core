@@ -1,12 +1,7 @@
-# HashTable containing the default values if a saved value isn't found.
-# Not all possible values are here.
-$script:DefaultValues = @{
-    dcopshost = 'https://dcops.corvel.com'
-    dcopdbserver = 'hbdcdcops02'
-    maxjsondatacacheage = '900'
- }
-
- $script:LocalSettingsFile = "$env:APPDATA\Corvel.DCOps\localsettings.json"
+$script:DCOpsLogLevels = @('VERBOSE', 'INFORMATION', 'WARNING', 'ERROR', 'NONE')
+$script:DCOpsFileLogLevelDefault = 'INFORMATION'
+$script:DCOpsVRLILogLevelDefault = 'VERBOSE'
+$script:DCOpsLogPathDefault = "$($env:ProgramData)\Corvel.DCOps\log"
 
 #region REMOVE_CODE
 # Code in this region will be removed during the build process and the function scripts
@@ -41,4 +36,3 @@ if (Test-Path "$ModuleRoot\private") {
 Export-ModuleMember -Function $ExportedFunctions
 #endregion LoadScripts
 #endregion REMOVE_CODE
-
