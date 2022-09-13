@@ -12,12 +12,12 @@ function Invoke-DCOpsLocalScript {
 	)
 	Get-CallerPreference -Cmdlet $PSCmdlet -SessionState $ExecutionContext.SessionState
 	Write-DCOpsMessage -Message 'Execution Started' -LogLevel VERBOSE -CorrelationID $CorrelationID
-	$Results = [PSCustomType][ordered] @{ PSTypeName = 'DCOpsScriptResult'
+	$Results = [PSCustomObject][ordered] @{ PSTypeName = 'DCOpsScriptResult'
 		Result = $false
 		ScriptResult = $null
 		ErrorRecord = $null
 	}
-
+	
 	$InstalledScript = Get-DCOpsLocalScript -Name $Script.Name -RequiredVersion $Script.Version -CorrelationID $CorrelationID
 	if (-not $InstalledScript)  {
 		if ($InstallIfMissing) {
